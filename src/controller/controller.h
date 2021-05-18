@@ -2,25 +2,31 @@
 #define CONTROLLER_H
 
 #include "insumo.h"
+
+#include "vacina.h"
+#include "medicamento.h"
+#include "epi.h"
+
 #include "local.h"
+
 #include <iostream>
 #include <vector>
-
-using namespace std;
 
 class Controller {
 
     private:
-        vector <Local> locais;
+        std::vector <Local> locais;
 
     public:
-        void cadastraInsumosMinisterio(); // Cadastra insumos no MS
+        Controller();
 
-        void distribuiInsumos(Local local, Insumo insumo); // Distribui insumos para estados
+        void cadastraInsumosMinisterio(int); // Cadastra insumos no MS
 
-        void consultaInsumos(Local local); // Consulta de insumos em determinado local
-        void consultaInsumosDescricao(Local local); // Consulta descrição de insumos de determinado local
-        void consultaTipoInsumos(Local local, int tipo); // Consulta de insumos por tipo
+        void distribuiInsumos(Local, Insumo); // Distribui insumos para estados
+
+        void consultaInsumos(Local); // Consulta de insumos em determinado local
+        void consultaInsumosDescricao(Local); // Consulta descrição de insumos de determinado local
+        void consultaTipoInsumos(Local, int); // Consulta de insumos por tipo
 
 };
 
