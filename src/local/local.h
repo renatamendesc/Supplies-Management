@@ -9,11 +9,11 @@ class Local {
 
     private:
         std::string sigla;
-        std::vector <Insumo> insumos;
+        std::vector <Insumo *> insumos;
     
     public:
         std::string getSigla();
-        vector <Insumo> getInsumos();
+        vector <Insumo *> getInsumos();
 
         void setSigla(std::string);
 

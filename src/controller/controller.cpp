@@ -29,7 +29,7 @@ void Controller :: cadastraInsumosMinisterio(int tipo){
 
     insumo->cadastraAtributos();
 
-    this->locais[0].getInsumos().push_back(*insumo);
+    this->locais[0].getInsumos().push_back(insumo);
      
 }
 
