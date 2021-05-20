@@ -5,6 +5,7 @@ using namespace std;
 Controller :: Controller(){
     vector <string> siglas = {"BR", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RR", "RO", "SC", "SP", "SE", "TO"};
     
+    // Incializa vector de locais com estados e Ministério da Saúde
     for(int i = 0; i < siglas.size(); i++){
         Local local;
 
@@ -17,34 +18,72 @@ void Controller :: cadastraInsumosMinisterio(int tipo){
     
     Insumo *insumo;
 
-    if(tipo == 1){
-        insumo = new Vacina();
+    // Verifica o tipo do insumo
+    switch(tipo){
+        case 1:
+            insumo = new Vacina();
+            break;
 
-    }else if(tipo == 2){
-        insumo = new Medicamento();
+        case 2:
+            insumo = new Medicamento();
+            break;
 
-    }else if(tipo == 3){
-        insumo = new EPI();
+        case 3:
+            insumo = new EPI();
+            break;
     }
 
+    // Faz a leitura das informações do insumo em questão
     insumo->cadastraAtributos();
 
-    this->locais[0].getInsumos().push_back(insumo);
+    // Adiciona o insumo no estoque do Ministério da Saúde
+    this->locais[0].setInsumo(insumo);
      
 }
 
-void Controller :: distribuiInsumos(Local local, Insumo insumo){
+void Controller :: distribuiInsumos(int iInsumo, int iLocal, int unidades){
+    bool flag = false;
+
+    // Verificação se o insumo em questão já existe no estoque do estado
+    for(int i = 0; i < this->locais[iLocal].getInsumos().size(); i++){
+        if(this->locais[iLocal].getInsumos()[i]->getNome() == this->locais[0].getInsumos()[iInsumo]->getNome()){
+            flag = true;
+            break;
+        }
+    }
+
+    // Envia insumo
+    if(!flag){
+        this->locais[iLocal].setInsumo(this->locais[0].getInsumos()[iInsumo]);
+        this->locais[iLocal].getInsumos()[this->locais[iLocal].getInsumos().size()-1]->setEstoque(unidades);
+
+    } else {
+        int estoqueAtual = this->locais[iLocal].getInsumos()[this->locais[iLocal].getInsumos().size()-1]->getEstoque();
+        this->locais[iLocal].getInsumos()[this->locais[iLocal].getInsumos().size()-1]->setEstoque(estoqueAtual + unidades);
+
+    }
+
+    // A quantidade enviada é debitada do estoque do Ministério da Saúde
+    int estoqueAtual = this->locais[0].getInsumos()[iInsumo]->getEstoque();
+    this->locais[0].getInsumos()[iInsumo]->setEstoque(estoqueAtual - unidades);
 
 }
 
-void Controller :: consultaInsumos(Local local){
+void Controller :: consultaInsumos(int iLocal){
 
 }
 
-void Controller :: consultaInsumosDescricao(Local local){
+void Controller :: consultaInsumosDescricao(int iLocal){
 
+    // Percorre insumos existentes no local
+    for(int i = 0; i < this->locais[iLocal].getInsumos().size(); i++){
+
+        // Exibe informações do insumo
+        this->locais[iLocal].getInsumos()[i]->exibeInformacoes();
+        cout << endl;
+    }
 }
 
-void Controller :: consultaTipoInsumos(Local local, int tipo){
+void Controller :: consultaTipoInsumos(int iLocal, int tipo){
 
 }

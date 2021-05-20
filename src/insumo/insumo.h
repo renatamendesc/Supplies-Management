@@ -33,6 +33,7 @@ class Insumo {
         float getValor();
 
         virtual void cadastraAtributos();
+        virtual void exibeInformacoes();
     
 };
 

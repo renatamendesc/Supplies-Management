@@ -2,16 +2,6 @@
 
 using namespace std;
 
-void Insumo :: cadastraAtributos(){
-
-    getline(cin, this->nome);
-    getline(cin, this->fabricante);
-    getline(cin, this->dataDeValidade);
-    getline(cin, this->descricao);
-
-    cin >> this->valor;
-}
-
 void Insumo :: setNome(string nome){
     this->nome = nome;
 }
@@ -69,4 +59,32 @@ float Insumo :: getValor(){
     return this->valor;
 }
 
+
+void Insumo :: cadastraAtributos(){
+
+    cout << "Nome: ";
+    getline(cin, this->nome);
+
+    cout << "Fabricante: ";
+    getline(cin, this->fabricante);
+
+    cout << "Data de validade: ";
+    getline(cin, this->dataDeValidade);
+
+    cout << "Descrição: ";
+    getline(cin, this->descricao);
+
+    cout << "Valor unitário: ";
+    cin >> this->valor;
+}
+
+void Insumo :: exibeInformacoes(){
+
+    cout << "Nome: " << this->nome << endl;
+    cout << "Fabricante: " << this->fabricante << endl;
+    cout << "Data de validade: " << this->dataDeValidade << endl;
+    cout << "Descrição: " << this->dataDeValidade << endl;
+    cout << "Valor unitário: " << this->valor << endl;
+    
+}
 

@@ -1,7 +1,7 @@
 #ifndef LOCAL_H
 #define LOCAL_H
 
-#include "insumo.h"
+#include "../insumo/insumo.h"
 #include <iostream>
 #include <vector>
 
@@ -13,9 +13,10 @@ class Local {
     
     public:
         std::string getSigla();
-        vector <Insumo *> getInsumos();
+        std::vector <Insumo *> getInsumos();
 
         void setSigla(std::string);
+        void setInsumo(Insumo *);
 
 };
 

@@ -28,6 +28,19 @@ void EPI::cadastraAtributos(){
     Insumo::cadastraAtributos();
 
     getchar();
+
+    cout << "Material utilizado: ";
     getline(cin, this->material);
+
+    cout << "Quantidade indicada de usos: ";
     getline(cin, this->quantidadeDeUsos);
+}
+
+void EPI::exibeInformacoes(){
+
+    Insumo::exibeInformacoes();
+
+    cout << "Material utilizado: " << this->material << endl;
+    cout << "Quantidade indicada de usos: " << this->quantidadeDeUsos << endl;
+    
 }

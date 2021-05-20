@@ -47,15 +47,38 @@ string Vacina :: getTemperaturaArmazenada(){
     return this->temperaturaArmazenada;
 }
 
+
 void Vacina :: cadastraAtributos(){
 
     Insumo::cadastraAtributos();
 
     getchar();
+
+    cout << "Tecnologia utilizada: ";
     getline(cin, this->tecnologia);
+
+    cout << "Doses necessárias: ";
     getline(cin, this->dosesNecessarias);
+
+    cout << "Intervalo entre doses: ";
     getline(cin, this->intervaloDoses);
+
+    cout << "Eficácia geral: ";
     getline(cin, this->eficaciaGeral);
+
+    cout << "Temperatura de armazenamento: ";
     getline(cin, this->temperaturaArmazenada);
+
+}
+
+void Vacina :: exibeInformacoes(){
+
+    Insumo::exibeInformacoes();
+
+    cout << "Tecnologia utilizada: " << this->tecnologia << endl;
+    cout << "Doses necessárias: " << this->dosesNecessarias << endl;
+    cout << "Intervalo entre doses: " << this->intervaloDoses << endl;
+    cout << "Eficácia geral: " << this->eficaciaGeral << endl;
+    cout << "Temperatura de armazenamento: " << this->temperaturaArmazenada << endl;
 
 }

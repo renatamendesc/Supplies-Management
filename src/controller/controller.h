@@ -1,14 +1,11 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
-#include "insumo.h"
-
-#include "vacina.h"
-#include "medicamento.h"
-#include "epi.h"
-
-#include "local.h"
-
+#include "../insumo/insumo.h"
+#include "../vacina/vacina.h"
+#include "../medicamento/medicamento.h"
+#include "../epi/epi.h"
+#include "../local/local.h"
 #include <iostream>
 #include <vector>
 
@@ -22,11 +19,11 @@ class Controller {
 
         void cadastraInsumosMinisterio(int); // Cadastra insumos no MS
 
-        void distribuiInsumos(Local, Insumo); // Distribui insumos para estados
+        void distribuiInsumos(int, int, int); // Distribui insumos para estados
 
-        void consultaInsumos(Local); // Consulta de insumos em determinado local
-        void consultaInsumosDescricao(Local); // Consulta descrição de insumos de determinado local
-        void consultaTipoInsumos(Local, int); // Consulta de insumos por tipo
+        void consultaInsumos(int); // Consulta de insumos em determinado local
+        void consultaInsumosDescricao(int); // Consulta descrição de insumos de determinado local
+        void consultaTipoInsumos(int, int); // Consulta de insumos por tipo
 
 };
 

@@ -1,7 +1,7 @@
 #ifndef VACINA_H
 #define VACINA_H
 
-#include "insumo.h"
+#include "../insumo/insumo.h"
 
 class Vacina: public Insumo {
 
@@ -28,6 +28,7 @@ class Vacina: public Insumo {
         std::string getTemperaturaArmazenada();
 
         void cadastraAtributos();
+        void exibeInformacoes();
 
 };
 

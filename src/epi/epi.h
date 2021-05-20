@@ -1,7 +1,7 @@
 #ifndef EPI_H
 #define EPI_H
 
-#include "insumo.h"
+#include "../insumo/insumo.h"
 #include <iostream>
 
 class EPI: public Insumo {
@@ -20,6 +20,7 @@ class EPI: public Insumo {
         std::string getQuantidadeDeUsos();
 
         void cadastraAtributos();
+        void exibeInformacoes();
 };
 
 #endif

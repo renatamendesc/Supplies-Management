@@ -2,7 +2,6 @@
 
 using namespace std;
 
-
 Medicamento :: Medicamento(){
     this->tipo = 2;
 }
@@ -41,13 +40,33 @@ string Medicamento :: getEfeitosColaterais(){
     return this->efeitosColaterais;
 }
 
+
 void Medicamento::cadastraAtributos(){
 
     Insumo::cadastraAtributos();
 
     getchar();
+
+    cout << "Modo de administração: ";
     getline(cin, this->modoAdministracao);
+
+    cout << "Tipo disponibilizado: ";
     getline(cin, this->tipoDisponibilizado);
+
+    cout << "Contra indicação: ";
     getline(cin, this->contraIndicacao);
+
+    cout << "Efeitos colaterais: ";
     getline(cin, this->efeitosColaterais);
+}
+
+void Medicamento::exibeInformacoes(){
+
+    Insumo::exibeInformacoes();
+
+    cout << "Modo de administração: " << this->modoAdministracao << endl;
+    cout << "Tipo disponibilizado: " << this->tipoDisponibilizado << endl;
+    cout << "Contra indicação: " << this->contraIndicacao << endl;
+    cout << "Efeitos colaterais: " << this->efeitosColaterais << endl;
+    
 }
