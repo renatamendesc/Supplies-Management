@@ -1,7 +1,7 @@
 #ifndef EPI_H
 #define EPI_H
 
-#include "../insumo/insumo.h"
+#include "insumo.h"
 #include <iostream>
 
 class EPI: public Insumo {

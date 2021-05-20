@@ -43,23 +43,24 @@ void Controller :: cadastraInsumosMinisterio(int tipo){
 
 void Controller :: distribuiInsumos(int iInsumo, int iLocal, int unidades){
     bool flag = false;
+    int iInsumoEstado;
 
     // Verificação se o insumo em questão já existe no estoque do estado
     for(int i = 0; i < this->locais[iLocal].getInsumos().size(); i++){
         if(this->locais[iLocal].getInsumos()[i]->getNome() == this->locais[0].getInsumos()[iInsumo]->getNome()){
             flag = true;
+            iInsumoEstado = i;
             break;
         }
     }
 
-    // Envia insumo
-    if(!flag){
+    if(!flag){ // Caso o insumo não exista no estado
         this->locais[iLocal].setInsumo(this->locais[0].getInsumos()[iInsumo]);
         this->locais[iLocal].getInsumos()[this->locais[iLocal].getInsumos().size()-1]->setEstoque(unidades);
 
-    } else {
-        int estoqueAtual = this->locais[iLocal].getInsumos()[this->locais[iLocal].getInsumos().size()-1]->getEstoque();
-        this->locais[iLocal].getInsumos()[this->locais[iLocal].getInsumos().size()-1]->setEstoque(estoqueAtual + unidades);
+    } else { // Caso já exista o insumo no estado
+        int estoqueAtual = this->locais[iLocal].getInsumos()[iInsumoEstado]->getEstoque();
+        this->locais[iLocal].getInsumos()[iInsumoEstado]->setEstoque(estoqueAtual + unidades);
 
     }
 

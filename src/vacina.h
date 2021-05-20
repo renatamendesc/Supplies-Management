@@ -1,7 +1,7 @@
 #ifndef VACINA_H
 #define VACINA_H
 
-#include "../insumo/insumo.h"
+#include "insumo.h"
 
 class Vacina: public Insumo {
 

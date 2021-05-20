@@ -1,7 +1,7 @@
 #ifndef LOCAL_H
 #define LOCAL_H
 
-#include "../insumo/insumo.h"
+#include "insumo.h"
 #include <iostream>
 #include <vector>
 

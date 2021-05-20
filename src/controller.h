@@ -1,11 +1,11 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
-#include "../insumo/insumo.h"
-#include "../vacina/vacina.h"
-#include "../medicamento/medicamento.h"
-#include "../epi/epi.h"
-#include "../local/local.h"
+#include "insumo.h"
+#include "vacina.h"
+#include "medicamento.h"
+#include "epi.h"
+#include "local.h"
 #include <iostream>
 #include <vector>
 
