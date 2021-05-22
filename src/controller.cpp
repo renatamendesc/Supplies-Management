@@ -70,7 +70,28 @@ void Controller :: distribuiInsumos(int iInsumo, int iLocal, int unidades){
 
 }
 
-void Controller :: consultaInsumos(int iLocal){
+void Controller :: consultaInsumosEstoque(int iLocal){
+
+    // Percorre insumos existentes no local
+    for(int i = 0; i < this->locais[iLocal].getInsumos().size(); i++){
+
+        // Exibe informações do insumo
+        cout << this->locais[iLocal].getInsumos()[i]->getNome() << ": " << this->locais[iLocal].getInsumos()[i]->getEstoque() << endl;
+    }
+
+}
+
+void Controller :: consultaTipoInsumosEstoque(int iLocal, int tipo){
+    
+    // Percorre insumos existentes no local
+    for(int i = 0; i < this->locais[iLocal].getInsumos().size(); i++){
+
+        // Exibe informações do insumo se for do tipo em questão
+        if(this->locais[iLocal].getInsumos()[i]->getTipo() == tipo){
+             cout << this->locais[iLocal].getInsumos()[i]->getNome() << ": " << this->locais[iLocal].getInsumos()[i]->getEstoque() << endl;
+        }
+
+    }
 
 }
 
@@ -83,8 +104,23 @@ void Controller :: consultaInsumosDescricao(int iLocal){
         this->locais[iLocal].getInsumos()[i]->exibeInformacoes();
         cout << endl;
     }
+
 }
 
-void Controller :: consultaTipoInsumos(int iLocal, int tipo){
+void Controller :: modificarInsumo(int iInsumo){
+
+    this->locais[0].getInsumos()[iInsumo]->cadastraAtributos();
+}
+
+void Controller :: apagarInsumo(int iInsumo){
+
+    this->locais[0].getInsumos().erase(this->locais[0].getInsumos().begin() + iInsumo);
+
+}
+
+void Controller :: acrescentarInsumos(int iInsumo, int unidades){
+
+    int estoqueAtual = this->locais[0].getInsumos()[iInsumo]->getEstoque();
+    this->locais[0].getInsumos()[iInsumo]->setEstoque(estoqueAtual + unidades);
 
 }

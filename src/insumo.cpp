@@ -62,6 +62,8 @@ float Insumo :: getValor(){
 
 void Insumo :: cadastraAtributos(){
 
+    cin.exceptions(istream::failbit);
+
     cout << "Nome: ";
     getline(cin, this->nome);
 
@@ -74,8 +76,21 @@ void Insumo :: cadastraAtributos(){
     cout << "Descrição: ";
     getline(cin, this->descricao);
 
-    cout << "Valor unitário: ";
-    cin >> this->valor;
+    while(true){
+        cout << "Valor unitário: ";
+        try{
+            cin >> this->valor;
+            break;
+        }
+        catch(ios_base::failure &fail){
+            cout << "Valor inválido, tente novamente!" << endl;
+            cin.clear();
+            string tmp;
+            getline(cin, tmp);
+            getchar();
+            continue;
+        }
+    }
 }
 
 void Insumo :: exibeInformacoes(){
@@ -85,6 +100,7 @@ void Insumo :: exibeInformacoes(){
     cout << "Data de validade: " << this->dataDeValidade << endl;
     cout << "Descrição: " << this->dataDeValidade << endl;
     cout << "Valor unitário: " << this->valor << endl;
+    cout << "Quantidade no estoque: " << this->estoque << endl;
     
 }
 

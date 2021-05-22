@@ -12,8 +12,9 @@ int main(void){
 
     Controller controller;
 
-    controller.cadastraInsumosMinisterio(2);
+    controller.cadastraInsumosMinisterio(1);
     controller.consultaInsumosDescricao(0);
+    
 
     return 0;
 }

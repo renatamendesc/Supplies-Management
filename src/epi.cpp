@@ -6,6 +6,7 @@ EPI :: EPI(){
     this->tipo = 3;
 }
 
+
 void EPI :: setMaterial(string material){
     this->material =  material;
 }
@@ -23,6 +24,7 @@ string EPI :: getQuantidadeDeUsos(){
     return this->quantidadeDeUsos;
 }
 
+
 void EPI::cadastraAtributos(){
 
     Insumo::cadastraAtributos();
@@ -34,6 +36,7 @@ void EPI::cadastraAtributos(){
 
     cout << "Quantidade indicada de usos: ";
     getline(cin, this->quantidadeDeUsos);
+
 }
 
 void EPI::exibeInformacoes(){
