@@ -17,6 +17,8 @@ class Controller {
     public:
         Controller();
 
+        std::vector <Local> getLocais();
+
         void cadastraInsumosMinisterio(int); // Cadastra insumos no MS
 
         void distribuiInsumos(int, int, int); // Distribui insumos para estados
@@ -29,6 +31,10 @@ class Controller {
         void apagarInsumo(int);
 
         void acrescentarInsumos(int, int);
+
+        int pesquisar(std::string, std::string, int);
+
+        void pause();
 
 };
 

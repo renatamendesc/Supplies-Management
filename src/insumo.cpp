@@ -98,7 +98,7 @@ void Insumo :: exibeInformacoes(){
     cout << "Nome: " << this->nome << endl;
     cout << "Fabricante: " << this->fabricante << endl;
     cout << "Data de validade: " << this->dataDeValidade << endl;
-    cout << "Descrição: " << this->dataDeValidade << endl;
+    cout << "Descrição: " << this->descricao << endl;
     cout << "Valor unitário: " << this->valor << endl;
     cout << "Quantidade no estoque: " << this->estoque << endl;
     

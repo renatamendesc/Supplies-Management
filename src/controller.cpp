@@ -14,6 +14,10 @@ Controller :: Controller(){
     }
 }
 
+vector <Local> Controller :: getLocais(){
+    return locais;
+}
+
 void Controller :: cadastraInsumosMinisterio(int tipo){
     
     Insumo *insumo;
@@ -72,30 +76,33 @@ void Controller :: distribuiInsumos(int iInsumo, int iLocal, int unidades){
 
 void Controller :: consultaInsumosEstoque(int iLocal){
 
+    system("clear");
+
     // Percorre insumos existentes no local
     for(int i = 0; i < this->locais[iLocal].getInsumos().size(); i++){
 
         // Exibe informações do insumo
         cout << this->locais[iLocal].getInsumos()[i]->getNome() << ": " << this->locais[iLocal].getInsumos()[i]->getEstoque() << endl;
     }
-
 }
 
 void Controller :: consultaTipoInsumosEstoque(int iLocal, int tipo){
+
+    system("clear");
     
     // Percorre insumos existentes no local
     for(int i = 0; i < this->locais[iLocal].getInsumos().size(); i++){
 
         // Exibe informações do insumo se for do tipo em questão
         if(this->locais[iLocal].getInsumos()[i]->getTipo() == tipo){
-             cout << this->locais[iLocal].getInsumos()[i]->getNome() << ": " << this->locais[iLocal].getInsumos()[i]->getEstoque() << endl;
+            cout << this->locais[iLocal].getInsumos()[i]->getNome() << ": " << this->locais[iLocal].getInsumos()[i]->getEstoque() << endl;
         }
-
     }
-
 }
 
 void Controller :: consultaInsumosDescricao(int iLocal){
+
+    system("clear");
 
     // Percorre insumos existentes no local
     for(int i = 0; i < this->locais[iLocal].getInsumos().size(); i++){
@@ -123,4 +130,38 @@ void Controller :: acrescentarInsumos(int iInsumo, int unidades){
     int estoqueAtual = this->locais[0].getInsumos()[iInsumo]->getEstoque();
     this->locais[0].getInsumos()[iInsumo]->setEstoque(estoqueAtual + unidades);
 
+}
+
+int Controller :: pesquisar(string estado, string insumo, int tipo){ // (1- insumo) (2- estado)
+
+    switch(tipo){
+
+        case 1:
+
+            int index = this->pesquisar(estado, "", 2);
+            
+            for(int i = 0; i < this->locais[index].getInsumos().size(); i++){
+                if(this->locais[index].getInsumos()[i]->getNome() == insumo){
+                    return i;
+                }
+            }
+
+            return -1;
+
+        case 2:
+
+            for(int i = 0; i < this->locais.size(); i++){
+                if(this->locais[0].getSigla() == estado){
+                    return i;
+                }
+            }
+
+            return -1;
+    }
+
+}
+
+void Controller :: pause(){
+    getchar();
+    getchar();
 }
