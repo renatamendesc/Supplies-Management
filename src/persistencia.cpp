@@ -20,24 +20,32 @@ void Persistencia :: finalizacao(){
 
     vector <Local> auxiliar = this->controller.getLocais();
 
+    Insumo *insumo;
+
     for(int i = 0; i < auxiliar.size(); i++){
-        for(int j = 0; j < auxiliar[i].size(); j++){
+        for(int j = 0; j < auxiliar[i].getInsumos().size(); j++){
 
             if(auxiliar[i].getInsumos()[j]->getTipo() == 1){ //vacina
 
-                Vacina insumo = auxiliar[i].getInsumos()[j];
+                insumo = new Vacina;
+                insumo = auxiliar[i].getInsumos()[j];
 
-                vacina << insumo.getNome() << ","
+                vacina << insumo->getNome() << ",";
+                vacina << insumo->getFabricante() << ",";
+                vacina << insumo->getDataDeValidade() << ",";
+                vacina << insumo->getDescricao() << ",";
 
             }
             if(auxiliar[i].getInsumos()[j]->getTipo() == 2){ //medicamento
-                
-                vector <Medicamento> insumo = auxiliar[i].getInsumos()[j];
+
+                insumo = new Medicamento;    
+                insumo = auxiliar[i].getInsumos()[j];
 
             }
             if(auxiliar[i].getInsumos()[j]->getTipo() == 3){ //epi
-                
-                vector <EPI> insumo = auxiliar[i].getInsumos()[j];
+
+                insumo = new EPI;    
+                insumo = auxiliar[i].getInsumos()[j];
 
             }
 
