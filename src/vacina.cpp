@@ -85,7 +85,7 @@ void Vacina :: exibeInformacoes(){
 
 }
 
-void Vacina :: salvarDados(int estado){
+void Vacina :: salvarDados(string estado){
     ofstream vacina;
     vacina.open("vacinas.csv", ios_base::app);
 

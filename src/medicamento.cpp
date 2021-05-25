@@ -73,7 +73,7 @@ void Medicamento ::exibeInformacoes(){
     
 }
 
-void Medicamento :: salvarDados(int estado){
+void Medicamento :: salvarDados(string estado){
     
     ofstream medicamento;
     medicamento.open("medicamentos.csv", ios_base::app);

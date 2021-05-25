@@ -50,7 +50,7 @@ void EPI::exibeInformacoes(){
     
 }
 
-void EPI::salvarDados(int estado){
+void EPI::salvarDados(string estado){
     ofstream epi;
     epi.open("epi.csv", ios_base::app);
 

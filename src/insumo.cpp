@@ -108,16 +108,13 @@ void Insumo :: exibeInformacoes(){
     
 }
 
-void Insumo :: salvarDados(int estado){
-
-    cout << "3-Entrando insumo" << endl;
+void Insumo :: salvarDados(string estado){
 
     if(this->tipo == 1){
 
         ofstream vacina;
         vacina.open("vacinas.csv", ios_base::app);
 
-        cout << "4-Detectado insumo vacina" << endl;
 
         vacina << endl << estado << ",";
         vacina << this->tipo << ",";
