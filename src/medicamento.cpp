@@ -43,6 +43,8 @@ string Medicamento :: getEfeitosColaterais(){
 
 void Medicamento::cadastraAtributos(){
 
+    std::cout << "\n----------------- CADASTRAR UM MEDICAMENTO -------------------\n\n";
+
     Insumo::cadastraAtributos();
 
     getchar();
@@ -60,7 +62,7 @@ void Medicamento::cadastraAtributos(){
     getline(cin, this->efeitosColaterais);
 }
 
-void Medicamento::exibeInformacoes(){
+void Medicamento ::exibeInformacoes(){
 
     Insumo::exibeInformacoes();
 
@@ -69,4 +71,20 @@ void Medicamento::exibeInformacoes(){
     cout << "Contra indicação: " << this->contraIndicacao << endl;
     cout << "Efeitos colaterais: " << this->efeitosColaterais << endl;
     
+}
+
+void Medicamento :: salvarDados(int estado){
+    
+    ofstream medicamento;
+    medicamento.open("medicamentos.csv", ios_base::app);
+
+    Insumo::salvarDados(estado);
+
+    medicamento << this->modoAdministracao << ",";
+    medicamento << this->tipoDisponibilizado << ",";
+    medicamento << this->contraIndicacao << ",";
+    medicamento << this->efeitosColaterais;
+
+    medicamento.close();
+
 }

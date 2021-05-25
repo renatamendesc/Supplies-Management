@@ -6,13 +6,13 @@
 #include <fstream>
 
 class Persistencia {
+
     private:
         Controller controller;
 
     public:
-
         void inicializacao();
-        void finalizacao();
+        void finalizacao(Controller);
 
 };
 

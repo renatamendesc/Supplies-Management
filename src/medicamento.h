@@ -27,6 +27,7 @@ class Medicamento: public Insumo {
 
         void cadastraAtributos();
         void exibeInformacoes();
+        void salvarDados(int);
 
 };
 

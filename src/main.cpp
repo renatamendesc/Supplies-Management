@@ -6,6 +6,7 @@ Breve descrição: Programa que cadastra informações sobre insumos, ligados ao
 **/
 
 #include "menu.h"
+#include "persistencia.h"
 #include <iostream>
 
 using namespace std;
@@ -13,8 +14,13 @@ using namespace std;
 int main(void){
     
     Menu menu;
+    Persistencia persistencia;
+
+    persistencia.inicializacao();
 
     menu.menuPrincipal();
+
+    persistencia.finalizacao(menu.getController());
 
     return 0;
 }

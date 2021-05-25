@@ -50,6 +50,8 @@ string Vacina :: getTemperaturaArmazenada(){
 
 void Vacina :: cadastraAtributos(){
 
+    std::cout << "\n------------------- CADASTRAR UMA VACINA ---------------------\n\n";
+
     Insumo::cadastraAtributos();
 
     getchar();
@@ -81,4 +83,23 @@ void Vacina :: exibeInformacoes(){
     cout << "Eficácia geral: " << this->eficaciaGeral << endl;
     cout << "Temperatura de armazenamento: " << this->temperaturaArmazenada << endl;
 
+}
+
+void Vacina :: salvarDados(int estado){
+    ofstream vacina;
+    vacina.open("vacinas.csv", ios_base::app);
+
+    cout << "2-Arquivo aberto" << endl;
+
+    Insumo :: salvarDados(estado);
+
+    vacina << this->tecnologia << ",";
+    vacina << this->dosesNecessarias << ",";
+    vacina << this->intervaloDoses << ",";
+    vacina << this->eficaciaGeral << ",";
+    vacina << this->temperaturaArmazenada;
+
+    cout << "5-Tudo salvo" << endl;
+
+    vacina.close();
 }

@@ -26,6 +26,8 @@ class Menu {
         void menuConsultaEstoque(int iLocal);
         void menuConsultaEstoqueTipo(int iLocal);
 
+        Controller getController();
+
 };
 
 #endif

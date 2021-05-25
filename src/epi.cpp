@@ -27,6 +27,8 @@ string EPI :: getQuantidadeDeUsos(){
 
 void EPI::cadastraAtributos(){
 
+    std::cout << "\n--------------------- CADASTRAR UM EPI -----------------------\n\n";
+
     Insumo::cadastraAtributos();
 
     getchar();
@@ -46,4 +48,17 @@ void EPI::exibeInformacoes(){
     cout << "Material utilizado: " << this->material << endl;
     cout << "Quantidade indicada de usos: " << this->quantidadeDeUsos << endl;
     
+}
+
+void EPI::salvarDados(int estado){
+    ofstream epi;
+    epi.open("epi.csv", ios_base::app);
+
+    Insumo::salvarDados(estado);
+
+    epi << this->material << ",";
+    epi << this->quantidadeDeUsos;
+
+    epi.close();
+
 }

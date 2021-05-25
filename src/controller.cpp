@@ -19,6 +19,8 @@ vector <Local> Controller :: getLocais(){
 }
 
 void Controller :: cadastraInsumosMinisterio(int tipo){
+
+    system("clear");
     
     Insumo *insumo;
 
@@ -84,6 +86,9 @@ void Controller :: consultaInsumosEstoque(int iLocal){
         // Exibe informações do insumo
         cout << this->locais[iLocal].getInsumos()[i]->getNome() << ": " << this->locais[iLocal].getInsumos()[i]->getEstoque() << endl;
     }
+
+    cout << "\n[Pressione enter para voltar]\n";
+    this->pause();
 }
 
 void Controller :: consultaTipoInsumosEstoque(int iLocal, int tipo){
@@ -98,6 +103,9 @@ void Controller :: consultaTipoInsumosEstoque(int iLocal, int tipo){
             cout << this->locais[iLocal].getInsumos()[i]->getNome() << ": " << this->locais[iLocal].getInsumos()[i]->getEstoque() << endl;
         }
     }
+
+    cout << "\n[Pressione enter para voltar]\n";
+    this->pause();
 }
 
 void Controller :: consultaInsumosDescricao(int iLocal){
@@ -111,6 +119,9 @@ void Controller :: consultaInsumosDescricao(int iLocal){
         this->locais[iLocal].getInsumos()[i]->exibeInformacoes();
         cout << endl;
     }
+
+    cout << "\n[Pressione enter para voltar]\n";
+    this->pause();
 
 }
 
@@ -137,7 +148,7 @@ int Controller :: pesquisar(string estado, string insumo, int tipo){ // (1- insu
     switch(tipo){
 
         case 1:
-
+        {
             int index = this->pesquisar(estado, "", 2);
             
             for(int i = 0; i < this->locais[index].getInsumos().size(); i++){
@@ -147,9 +158,10 @@ int Controller :: pesquisar(string estado, string insumo, int tipo){ // (1- insu
             }
 
             return -1;
+        }
 
         case 2:
-
+        {
             for(int i = 0; i < this->locais.size(); i++){
                 if(this->locais[0].getSigla() == estado){
                     return i;
@@ -157,6 +169,7 @@ int Controller :: pesquisar(string estado, string insumo, int tipo){ // (1- insu
             }
 
             return -1;
+        }
     }
 
 }

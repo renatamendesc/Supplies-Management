@@ -27,6 +27,8 @@ void Menu :: menuPrincipal(){
 
         std::cin >> selection;
 
+        getchar();
+
         switch(selection){
             
             case 1:
@@ -80,11 +82,13 @@ void Menu :: menuConsulta(){
 
         std::cout << "[1] Consultar dados do Ministério da Saúde\n";
         std::cout << "[2] Consultar dados de estados\n";
-        std::cout << "[0] Sair\n";
+        std::cout << "[0] Voltar\n";
         
         std::cout << "\n-------------------------------------------------------------\n";
 
         std::cin >> selection;
+
+        getchar();
 
         switch(selection){
             
@@ -135,11 +139,13 @@ void Menu :: menuConsultaGeral(int iLocal){
 
         std::cout << "[1] Consultar estoque\n";
         std::cout << "[2] Consultar informações gerais\n";
-        std::cout << "[0] Sair\n";
+        std::cout << "[0] Voltar\n";
         
         std::cout << "\n-------------------------------------------------------------\n";
 
         std::cin >> selection;
+
+        getchar();
 
         switch(selection){
             
@@ -168,7 +174,7 @@ void Menu :: menuConsultaGeral(int iLocal){
 
 void Menu :: menuConsultaEstado(){
     
-    string selection;
+    std::string selection;
     bool flag = false;
     
     while(1){
@@ -187,7 +193,7 @@ void Menu :: menuConsultaEstado(){
         
         std::cout << "\n-------------------------------------------------------------\n";
         
-        std::cin >> selection;
+        std::getline(std::cin, selection);
 
         if(selection == "0"){
             break;  
@@ -234,11 +240,13 @@ void Menu :: menuConsultaEstoque(int iLocal){
 
         std::cout << "[1] Consultar estoque por tipo\n";
         std::cout << "[2] Consultar estoque geral\n";
-        std::cout << "[0] Sair\n";
+        std::cout << "[0] Voltar\n";
         
         std::cout << "\n-------------------------------------------------------------\n";
 
         std::cin >> selection;
+
+        getchar();
 
         switch(selection){
             
@@ -294,6 +302,7 @@ void Menu :: menuConsultaEstoqueTipo(int iLocal){
         std::cout << "\n-------------------------------------------------------------\n";
         
         std::cin >> selection;
+        getchar();
 
         switch(selection){
             
@@ -340,7 +349,7 @@ void Menu :: menuCadastro(){
 
         std::cout << "\n-------------------- CADASTRO DE INSUMOS ---------------------\n\n";
         
-        std::cout << "[1] Cadastrar um vastd::cina\n";
+        std::cout << "[1] Cadastrar uma vacina\n";
         std::cout << "[2] Cadastrar um medicamento\n";
         std::cout << "[3] Cadastrar um EPI\n";
         std::cout << "[0] Voltar\n";
@@ -348,6 +357,8 @@ void Menu :: menuCadastro(){
         std::cout << "\n-------------------------------------------------------------\n";
         
         std::cin >> selection;
+
+        getchar();
 
         switch(selection){
             
@@ -402,10 +413,10 @@ void Menu :: menuAcrescentar(){
         
         std::getline(std::cin, selection);
         
-        if(selection == "0")
+        if(selection == "0"){
             flag = true;
 
-        else{
+        }else{
 
             int index = this->controller.pesquisar("BR", selection, 1);
 
@@ -468,6 +479,8 @@ void Menu :: menuModificar(){
         std::cout << "\n------------------------------------------------------------\n";
 
         std::cin >> selection;
+
+        getchar();
 
         switch(selection){
 
@@ -538,9 +551,8 @@ void Menu :: menuEnviarInsumo(int estado){
                 std::cout << "\n[Pressione enter para tentar novamente]\n\n";
                 getchar();
 
-            }
-
-            else{
+            } else {
+                
                 int quantidade;
                 
                 std::cout << "\n---------------- ENVIAR INSUMOS AOS ESTADOS ------------------\n\n";
@@ -553,11 +565,18 @@ void Menu :: menuEnviarInsumo(int estado){
 
                 std::cin >> quantidade;
 
-                if(quantidade == 0)
+                getchar();
+
+                if(quantidade == 0){
                     continue;
                 
-                else{
+                } else if(quantidade > this->controller.getLocais()[estado].getInsumos()[index]->getEstoque() || quantidade < 1){ 
+                    std::cout << "\nQuantidade inválida!\n";
 
+                    std::cout << "\n[Pressione enter para tentar novamente]\n\n";
+                    getchar();
+
+                } else {
                     this->controller.distribuiInsumos(index, estado, quantidade);
 
                 }
@@ -571,7 +590,7 @@ void Menu :: menuEnviarParaEstado(){
     string selection;
     bool flag = false;
     
-    while(1){
+    while(true){
 
         system("clear");
 
@@ -587,14 +606,14 @@ void Menu :: menuEnviarParaEstado(){
         
         std::cout << "\n-------------------------------------------------------------\n";
         
-        std::cin >> selection;
+        std::getline(std::cin, selection);
 
         if(selection == "0"){
             break;  
 
         }else{
 
-            // Análise se o estado selecionado existe: 
+            // Analise se o estado selecionado existe: 
             int index = this->controller.pesquisar(selection, "", 2);
 
             if(index == -1){
@@ -609,4 +628,8 @@ void Menu :: menuEnviarParaEstado(){
             }
         }
     } 
+}
+
+Controller Menu :: getController(){
+    return controller;
 }

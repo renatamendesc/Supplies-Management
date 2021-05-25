@@ -21,6 +21,7 @@ class EPI: public Insumo {
 
         void cadastraAtributos();
         void exibeInformacoes();
+        void salvarDados(int);
 };
 
 #endif

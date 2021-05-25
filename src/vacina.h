@@ -29,6 +29,7 @@ class Vacina: public Insumo {
 
         void cadastraAtributos();
         void exibeInformacoes();
+        void salvarDados(int);
 
 };
 

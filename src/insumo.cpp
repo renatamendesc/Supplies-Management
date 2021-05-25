@@ -2,6 +2,10 @@
 
 using namespace std;
 
+Insumo::~Insumo(){
+
+}
+
 void Insumo :: setNome(string nome){
     this->nome = nome;
 }
@@ -104,3 +108,61 @@ void Insumo :: exibeInformacoes(){
     
 }
 
+void Insumo :: salvarDados(int estado){
+
+    cout << "3-Entrando insumo" << endl;
+
+    if(this->tipo == 1){
+
+        ofstream vacina;
+        vacina.open("vacinas.csv", ios_base::app);
+
+        cout << "4-Detectado insumo vacina" << endl;
+
+        vacina << endl << estado << ",";
+        vacina << this->tipo << ",";
+        vacina << this->nome << ",";
+        vacina << this->fabricante << ",";
+        vacina << this->dataDeValidade << ",";
+        vacina << this->descricao << ",";
+        vacina << this->valor << ",";
+        vacina << this->estoque << ",";
+
+        vacina.close();
+    }
+
+    if(this->tipo == 2){
+
+        ofstream medicamento;
+        medicamento.open("medicamentos.csv", ios_base::app);
+
+        medicamento << endl << estado << ",";
+        medicamento << this->tipo << ",";
+        medicamento << this->nome << ",";
+        medicamento << this->fabricante << ",";
+        medicamento << this->dataDeValidade << ",";
+        medicamento << this->descricao << ",";
+        medicamento << this->valor << ",";
+        medicamento << this->estoque << ",";
+
+        medicamento.close();
+    }
+
+    if(this->tipo == 3){
+
+        ofstream epi;
+        epi.open("epi.csv", ios_base::app);
+
+        epi << endl << estado << ",";
+        epi << this->tipo << ",";
+        epi << this->nome << ",";
+        epi << this->fabricante << ",";
+        epi << this->dataDeValidade << ",";
+        epi << this->descricao << ",";
+        epi << this->valor << ",";
+        epi << this->estoque << ",";
+
+        epi.close();
+    }
+
+}

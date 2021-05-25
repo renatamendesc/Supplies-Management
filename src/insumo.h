@@ -2,6 +2,7 @@
 #define INSUMO_H
 
 #include <iostream>
+#include <fstream>
 
 class Insumo {
     
@@ -16,6 +17,8 @@ class Insumo {
         float valor;
         
     public:
+        ~Insumo();
+
         void setNome(std::string);
         void setFabricante(std::string);
         void setDataDeValidade(std::string);
@@ -34,6 +37,7 @@ class Insumo {
 
         virtual void cadastraAtributos();
         virtual void exibeInformacoes();
+        virtual void salvarDados(int);
     
 };
 
