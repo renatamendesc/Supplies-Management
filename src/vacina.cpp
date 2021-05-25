@@ -86,10 +86,9 @@ void Vacina :: exibeInformacoes(){
 }
 
 void Vacina :: salvarDados(string estado){
+
     ofstream vacina;
     vacina.open("vacinas.csv", ios_base::app);
-
-    cout << "2-Arquivo aberto" << endl;
 
     Insumo :: salvarDados(estado);
 
@@ -99,7 +98,17 @@ void Vacina :: salvarDados(string estado){
     vacina << this->eficaciaGeral << ",";
     vacina << this->temperaturaArmazenada;
 
-    cout << "5-Tudo salvo" << endl;
-
     vacina.close();
 }
+
+void Vacina :: coletaDados(vector <string> dados){
+
+    Insumo::coletaDados(dados);
+
+    this->setTecnologia(dados[6]);
+    this->setDosesNecessarias(dados[7]);
+    this->setIntervaloDoses(dados[8]);
+    this->setEficaciaGeral(dados[9]);
+    this->setTemperaturaArmazenada(dados[10]);
+
+}         

@@ -62,3 +62,12 @@ void EPI::salvarDados(string estado){
     epi.close();
 
 }
+
+void EPI :: coletaDados(vector <string> dados){
+
+    Insumo::coletaDados(dados);
+
+    this->setMaterial(dados[6]);
+    this->setQuantidadeDeUsos(dados[7]);
+    
+}

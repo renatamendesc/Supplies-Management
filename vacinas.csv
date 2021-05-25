@@ -1,3 +1,4 @@
 estado,tipo,nome,fabricante,dataDeValidade,descricao,valor,estoque,tecnologia,dosesNecessarias,intervaloDoses,eficaciaGeral,temperaturaArmazenada
-0,1,CoronaVac,SinoVac,22/04/2022,Vacian para Covid-19.,950,0,Virus atenuado,2,21,72%,10 graus
-0,1,Vacina da Pfizer,Pfizer,12/05/2022,Vacina contra covid-19,1200,0,RNA mensageiro,2,90,98%,-40 graus
+BR,vacina,CoronaVac,SinoVac,22/04/2022,Vacian para Covid-19.,950,0,Virus atenuado,2,21,72%,10 graus
+BR,vacina,Vacina da Pfizer,Pfizer,12/05/2022,Vacina contra covid-19,1200,0,RNA mensageiro,2,90,98%,-40 graus
+BR,vacina,Vacina de Oxford,Astrazeneca,13/09/2022,Vacina contra covid-19.,200,0,Vetor viral,2,90,82%,-15 graus

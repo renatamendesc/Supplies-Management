@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void Menu :: menuPrincipal(){
+void Menu :: menuPrincipal(Controller &controller){
 
     int selection;
     bool flag = false;
@@ -32,23 +32,23 @@ void Menu :: menuPrincipal(){
         switch(selection){
             
             case 1:
-                this->menuCadastro();
+                this->menuCadastro(controller);
                 continue;
 
             case 2:
-                this->menuConsulta();
+                this->menuConsulta(controller);
                 continue;
             
             case 3:
-                this->menuAcrescentar();
+                this->menuAcrescentar(controller);
                 continue;
             
             case 4:
-                this->menuModificar();
+                this->menuModificar(controller);
                 continue;
             
             case 5:
-                this->menuEnviarParaEstado();
+                this->menuEnviarParaEstado(controller);
                 continue;
 
             case 0:
@@ -60,13 +60,13 @@ void Menu :: menuPrincipal(){
 
                 std::cout << "\n[Pressione enter para tentar novamente]\n";
                 
-                this->controller.pause();
+                controller.pause();
                 continue;
         }
     }
 }
 
-void Menu :: menuConsulta(){
+void Menu :: menuConsulta(Controller &controller){
 
     int selection;
     bool flag = false;
@@ -93,11 +93,11 @@ void Menu :: menuConsulta(){
         switch(selection){
             
             case 1:
-                this->menuConsultaGeral(0);
+                this->menuConsultaGeral(controller, 0);
                 continue;
 
             case 2:
-                this->menuConsultaEstado();
+                this->menuConsultaEstado(controller);
                 continue;
 
             case 0:
@@ -109,14 +109,14 @@ void Menu :: menuConsulta(){
 
                 std::cout << "\n[Pressione enter para tentar novamente]\n";
                 
-                this->controller.pause();
+                controller.pause();
                 continue;
         }
     }  
 }
 
 
-void Menu :: menuConsultaGeral(int iLocal){
+void Menu :: menuConsultaGeral(Controller &controller, int iLocal){
 
     int selection;
     bool flag = false;
@@ -125,7 +125,7 @@ void Menu :: menuConsultaGeral(int iLocal){
     if(iLocal == 0){
         local = "MS";
     } else {
-        local = this->controller.getLocais()[iLocal].getSigla();
+        local = controller.getLocais()[iLocal].getSigla();
     }
 
     while(true){
@@ -150,11 +150,11 @@ void Menu :: menuConsultaGeral(int iLocal){
         switch(selection){
             
             case 1:
-                this->menuConsultaEstoque(iLocal);
+                this->menuConsultaEstoque(controller, iLocal);
                 continue;
 
             case 2:
-                this->controller.consultaInsumosDescricao(iLocal);
+                controller.consultaInsumosDescricao(iLocal);
                 continue;
 
             case 0:
@@ -166,13 +166,13 @@ void Menu :: menuConsultaGeral(int iLocal){
 
                 std::cout << "\n[Pressione enter para tentar novamente]\n";
                 
-                this->controller.pause();
+                controller.pause();
                 continue;
         }
     }
 }
 
-void Menu :: menuConsultaEstado(){
+void Menu :: menuConsultaEstado(Controller &controller){
     
     std::string selection;
     bool flag = false;
@@ -201,7 +201,7 @@ void Menu :: menuConsultaEstado(){
         }else{
 
             // Análisa se o estado selecionado existe 
-            int index = this->controller.pesquisar(selection, "", 2);
+            int index = controller.pesquisar(selection, "", 2);
 
             if(index == -1){
                 std::cout << "\nNão foi identificado nenhum estado com a sigla \"" << selection << "\".\n";
@@ -210,14 +210,14 @@ void Menu :: menuConsultaEstado(){
                 getchar();
 
             }else{
-                this->menuConsultaGeral(index);
+                this->menuConsultaGeral(controller, index);
             
             }
         }
     } 
 }
 
-void Menu :: menuConsultaEstoque(int iLocal){
+void Menu :: menuConsultaEstoque(Controller &controller, int iLocal){
 
     int selection;
     bool flag = false;
@@ -226,7 +226,7 @@ void Menu :: menuConsultaEstoque(int iLocal){
     if(iLocal == 0){
         local = "MS";
     } else {
-        local = this->controller.getLocais()[iLocal].getSigla();
+        local = controller.getLocais()[iLocal].getSigla();
     }
 
     while(true){
@@ -251,11 +251,11 @@ void Menu :: menuConsultaEstoque(int iLocal){
         switch(selection){
             
             case 1:
-                this->menuConsultaEstoqueTipo(iLocal);
+                this->menuConsultaEstoqueTipo(controller, iLocal);
                 continue;
 
             case 2:
-                this->controller.consultaInsumosEstoque(iLocal);
+                controller.consultaInsumosEstoque(iLocal);
                 continue;
 
             case 0:
@@ -267,13 +267,13 @@ void Menu :: menuConsultaEstoque(int iLocal){
 
                 std::cout << "\n[Pressione enter para tentar novamente]\n";
                 
-                this->controller.pause();
+                controller.pause();
                 continue;
         }
     }
 }
 
-void Menu :: menuConsultaEstoqueTipo(int iLocal){
+void Menu :: menuConsultaEstoqueTipo(Controller &controller, int iLocal){
 
     int selection;
     bool flag = false;
@@ -282,7 +282,7 @@ void Menu :: menuConsultaEstoqueTipo(int iLocal){
     if(iLocal == 0){
         local = "MS";
     } else {
-        local = this->controller.getLocais()[iLocal].getSigla();
+        local = controller.getLocais()[iLocal].getSigla();
     }
 
     while(true){
@@ -307,15 +307,15 @@ void Menu :: menuConsultaEstoqueTipo(int iLocal){
         switch(selection){
             
             case 1:
-                this->controller.consultaTipoInsumosEstoque(iLocal, 1);
+                controller.consultaTipoInsumosEstoque(iLocal, 1);
                 continue;
 
             case 2:
-                this->controller.consultaTipoInsumosEstoque(iLocal, 2);
+                controller.consultaTipoInsumosEstoque(iLocal, 2);
                 continue;
 
             case 3:
-                this->controller.consultaTipoInsumosEstoque(iLocal, 3);
+                controller.consultaTipoInsumosEstoque(iLocal, 3);
                 continue;
 
             case 0:
@@ -327,15 +327,13 @@ void Menu :: menuConsultaEstoqueTipo(int iLocal){
 
                 std::cout << "\n[Pressione enter para tentar novamente]\n";
                 
-                this->controller.pause();
+                controller.pause();
                 continue;       
         }
     }
 }
 
-// -------------------------------------------------------------------------------------------------
-
-void Menu :: menuCadastro(){
+void Menu :: menuCadastro(Controller &controller){
 
     int selection;
     bool flag = false;
@@ -363,15 +361,15 @@ void Menu :: menuCadastro(){
         switch(selection){
             
             case 1:
-                this->controller.cadastraInsumosMinisterio(1);
+                controller.cadastraInsumosMinisterio(1);
                 continue;
 
             case 2:
-                this->controller.cadastraInsumosMinisterio(2);
+                controller.cadastraInsumosMinisterio(2);
                 continue;
 
             case 3:
-                this->controller.cadastraInsumosMinisterio(3);
+                controller.cadastraInsumosMinisterio(3);
                 continue;
 
             case 0:
@@ -383,15 +381,15 @@ void Menu :: menuCadastro(){
 
                 std::cout << "\n[Pressione enter para tentar novamente]\n";
                 
-                this->controller.pause();
+                controller.pause();
                 continue;
                 
         }
     }
 }
 
-void Menu :: menuAcrescentar(){
-    
+void Menu :: menuAcrescentar(Controller &controller){
+
     string selection;
     bool flag = false;
     
@@ -418,7 +416,7 @@ void Menu :: menuAcrescentar(){
 
         }else{
 
-            int index = this->controller.pesquisar("BR", selection, 1);
+            int index = controller.pesquisar("BR", selection, 1);
 
             system("clear");
 
@@ -429,9 +427,7 @@ void Menu :: menuAcrescentar(){
                 std::cout << "\n[Pressione enter para tentar novamente]\n\n";
                 getchar();
 
-            }
-
-            else{
+            } else {
                 int quantidade;
                 
                 std::cout << "\n-------------- ACRESCENTAR INSUMOS AO ESTOQUE ----------------\n\n";
@@ -444,12 +440,13 @@ void Menu :: menuAcrescentar(){
 
                 std::cin >> quantidade;
 
-                if(quantidade == 0)
-                    continue;
-                
-                else{
+                getchar();
 
-                    this->controller.acrescentarInsumos(index, quantidade);
+                if(quantidade == 0){
+                    continue;
+
+                }else{
+                    controller.acrescentarInsumos(index, quantidade);
 
                 }
             }
@@ -457,7 +454,7 @@ void Menu :: menuAcrescentar(){
     }
 }
 
-void Menu :: menuModificar(){
+void Menu :: menuModificar(Controller &controller){
 
     int selection; 
     bool flag = false;
@@ -489,28 +486,28 @@ void Menu :: menuModificar(){
                 continue;
 
             case 1:
-                this->controller.modificarInsumo(1); // Chama função de modificar cadastro
+                controller.modificarInsumo(1); // Chama função de modificar cadastro
                 continue;
 
             case 2:
-                this->controller.modificarInsumo(2); // Chama função de modificar cadastro
+                controller.modificarInsumo(2); // Chama função de modificar cadastro
                 continue;
                 
             case 3:
-                this->controller.modificarInsumo(3); // Chama função de modificar cadastro
+                controller.modificarInsumo(3); // Chama função de modificar cadastro
                 continue;
 
             default:
                 std::cout << "\nOpção inválida!\n";
 
                 std::cout << "\n[Pressione enter para tentar novamente]\n";
-                this->controller.pause();
+                controller.pause();
                 continue;
         }
     }
 }
 
-void Menu :: menuEnviarInsumo(int estado){
+void Menu :: menuEnviarInsumo(Controller &controller,int estado){
 
     bool flag = 0;
     string selection;
@@ -540,7 +537,7 @@ void Menu :: menuEnviarInsumo(int estado){
             
         }else{
             
-            index = this->controller.pesquisar("BR", selection, 1);
+            index = controller.pesquisar("BR", selection, 1);
 
             system("clear");
 
@@ -570,14 +567,14 @@ void Menu :: menuEnviarInsumo(int estado){
                 if(quantidade == 0){
                     continue;
                 
-                } else if(quantidade > this->controller.getLocais()[estado].getInsumos()[index]->getEstoque() || quantidade < 1){ 
+                } else if(quantidade > controller.getLocais()[0].getInsumos()[index]->getEstoque() || quantidade < 1){ 
                     std::cout << "\nQuantidade inválida!\n";
 
                     std::cout << "\n[Pressione enter para tentar novamente]\n\n";
                     getchar();
 
                 } else {
-                    this->controller.distribuiInsumos(index, estado, quantidade);
+                    controller.distribuiInsumos(index, estado, quantidade);
 
                 }
             }
@@ -585,7 +582,7 @@ void Menu :: menuEnviarInsumo(int estado){
     }
 }
 
-void Menu :: menuEnviarParaEstado(){
+void Menu :: menuEnviarParaEstado(Controller &controller){
 
     string selection;
     bool flag = false;
@@ -614,7 +611,7 @@ void Menu :: menuEnviarParaEstado(){
         }else{
 
             // Analise se o estado selecionado existe: 
-            int index = this->controller.pesquisar(selection, "", 2);
+            int index = controller.pesquisar(selection, "", 2);
 
             if(index == -1){
                 std::cout << "\nNão foi identificado nenhum estado com a sigla \"" << selection << "\".\n";
@@ -623,13 +620,9 @@ void Menu :: menuEnviarParaEstado(){
                 getchar();
 
             }else{
-                menuEnviarInsumo(index); // Chama menu para selecionar tipo de insumo a ser enviado
+                menuEnviarInsumo(controller, index); // Chama menu para selecionar tipo de insumo a ser enviado
             
             }
         }
     } 
-}
-
-Controller Menu :: getController(){
-    return controller;
 }

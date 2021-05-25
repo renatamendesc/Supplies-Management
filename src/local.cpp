@@ -7,9 +7,15 @@ void Local :: setSigla(string sigla){
 }
 
 void Local :: setInsumo(Insumo *insumo){
-    insumos.push_back(insumo);
-}
 
+    cout << insumo->getNome() << endl;
+
+    insumos.push_back(insumo);
+
+    cout << insumos[insumos.size()-1]->getNome();
+
+    getchar();
+}
 
 string Local :: getSigla(){
     return this->sigla;

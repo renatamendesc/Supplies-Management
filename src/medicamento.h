@@ -27,7 +27,8 @@ class Medicamento: public Insumo {
 
         void cadastraAtributos();
         void exibeInformacoes();
-        void salvarDados(int);
+        void salvarDados(std::string);
+        void coletaDados(std::vector <std::string>);
 
 };
 

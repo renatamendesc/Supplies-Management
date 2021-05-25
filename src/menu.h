@@ -6,27 +6,22 @@
 
 class Menu {
 
-    private:
-        Controller controller;
-
     public:
-        void menuPrincipal();
+        void menuPrincipal(Controller &);
         
-        void menuConsulta();
-        void menuCadastro();
-        void menuAcrescentar();
-        void menuModificar();
-        void menuEnviarParaEstado();
+        void menuConsulta(Controller &);
+        void menuCadastro(Controller &);
+        void menuAcrescentar(Controller &);
+        void menuModificar(Controller &);
+        void menuEnviarParaEstado(Controller &);
 
-        void menuEnviarInsumo(int estado);
+        void menuEnviarInsumo(Controller &, int estado);
 
-        void menuConsultaGeral(int iLocal);
-        void menuConsultaEstado();
+        void menuConsultaGeral(Controller &, int iLocal);
+        void menuConsultaEstado(Controller &);
 
-        void menuConsultaEstoque(int iLocal);
-        void menuConsultaEstoqueTipo(int iLocal);
-
-        Controller getController();
+        void menuConsultaEstoque(Controller &, int iLocal);
+        void menuConsultaEstoqueTipo(Controller &, int iLocal);
 
 };
 

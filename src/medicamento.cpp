@@ -88,3 +88,14 @@ void Medicamento :: salvarDados(string estado){
     medicamento.close();
 
 }
+
+void Medicamento :: coletaDados(vector <string> dados){
+
+    Insumo::coletaDados(dados);
+
+    this->setModoAdministracao(dados[6]);
+    this->setTipoDisponibilizado(dados[7]);
+    this->setContraIndicacao(dados[8]);
+    this->setEfeitosColaterais(dados[9]);
+
+}

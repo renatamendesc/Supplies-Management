@@ -34,6 +34,8 @@ class Controller {
 
         int pesquisar(std::string, std::string, int);
 
+        void setarDado(int, Insumo *);
+
         void pause();
 
 };

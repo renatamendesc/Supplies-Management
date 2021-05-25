@@ -3,16 +3,14 @@
 
 #include <iostream>
 #include "controller.h"
+#include "insumo.h"
 #include <fstream>
 
 class Persistencia {
 
-    private:
-        Controller controller;
-
     public:
-        void inicializacao();
-        void finalizacao(Controller);
+        void inicializacao(Controller &);
+        void finalizacao(Controller &);
 
 };
 

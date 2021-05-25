@@ -1,7 +1,7 @@
 /**
 Programa de cadastro de insumos
 Autores: Gabriela Gomes Cavalcanti Alves Monteiro, Guilherme Jácome Cavalcante, Renata Mendes Pereira Campos
-Ultima atualização: 24/05/2021
+Ultima atualização: 25/05/2021
 Breve descrição: Programa que cadastra informações sobre insumos, ligados ao covid 19.
 **/
 
@@ -12,15 +12,14 @@ Breve descrição: Programa que cadastra informações sobre insumos, ligados ao
 using namespace std;
 
 int main(void){
-    
-    Menu menu;
+
+    Controller controller;
     Persistencia persistencia;
+    Menu menu;
 
-    persistencia.inicializacao();
-
-    menu.menuPrincipal();
-
-    persistencia.finalizacao(menu.getController());
+    persistencia.inicializacao(controller);
+    menu.menuPrincipal(controller);
+    persistencia.finalizacao(controller);
 
     return 0;
 }

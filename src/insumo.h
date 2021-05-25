@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <vector>
 
 class Insumo {
     
@@ -37,7 +38,8 @@ class Insumo {
 
         virtual void cadastraAtributos();
         virtual void exibeInformacoes();
-        virtual void salvarDados(int);
+        virtual void salvarDados(std::string);
+        virtual void coletaDados(std::vector <std::string>);
     
 };
 
