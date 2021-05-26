@@ -44,7 +44,7 @@ void Menu :: menuPrincipal(Controller &controller){
                 continue;
             
             case 4:
-                this->menuModificar(controller);
+                this->menuAlteracoes(controller);
                 continue;
             
             case 5:
@@ -454,8 +454,7 @@ void Menu :: menuAcrescentar(Controller &controller){
     }
 }
 
-void Menu :: menuModificar(Controller &controller){
-
+void Menu :: menuAlteracoes(Controller &controller){
     int selection; 
     bool flag = false;
 
@@ -468,9 +467,8 @@ void Menu :: menuModificar(Controller &controller){
 
         std::cout << "\n--------------------- MODIFICAR INSUMOS --------------------\n\n";
         
-        std::cout << "[1] Modificar vacinas\n";
-        std::cout << "[2] Modificar medicamentos\n";
-        std::cout << "[3] Modificar EPIs\n";
+        std::cout << "[1] Modificar dados de insumos\n";
+        std::cout << "[2] Apagar dados de insumos\n";
         std::cout << "[0] Voltar\n";
 
         std::cout << "\n------------------------------------------------------------\n";
@@ -486,15 +484,11 @@ void Menu :: menuModificar(Controller &controller){
                 continue;
 
             case 1:
-                controller.modificarInsumo(1); // Chama função de modificar cadastro
+                this->menuModificar(controller);
                 continue;
 
             case 2:
-                controller.modificarInsumo(2); // Chama função de modificar cadastro
-                continue;
-                
-            case 3:
-                controller.modificarInsumo(3); // Chama função de modificar cadastro
+                this->menuApagar(controller); // Chama função de modificar cadastro
                 continue;
 
             default:
@@ -503,6 +497,242 @@ void Menu :: menuModificar(Controller &controller){
                 std::cout << "\n[Pressione enter para tentar novamente]\n";
                 controller.pause();
                 continue;
+        }
+    }
+}
+
+void Menu :: menuApagar(Controller &controller){
+    int selection; 
+    bool flag = false;
+
+    while(true){
+        if(flag){
+            break;
+        }
+
+        system("clear");
+
+        std::cout << "\n----------------------- APAGAR INSUMOS ---------------------\n\n";
+        
+        std::cout << "[1] Apagar um insumo\n";
+        std::cout << "[2] Apagar todos os insumos\n";
+        std::cout << "[0] Voltar\n";
+
+        std::cout << "\n------------------------------------------------------------\n";
+
+        std::cin >> selection;
+
+        getchar();
+
+        switch(selection){
+
+            case 0:
+                flag = true;
+                continue;
+
+            case 1:
+                this->menuApagarInsumo(controller);
+                continue;
+
+            case 2:
+
+                while(true){
+                    int selection;
+
+                    cout << "Deseja salvar as alterações?" <<endl;
+                    cout << "[1] Sim" << endl;
+                    cout << "[2] Não" << endl;
+
+                    cin >> selection;
+
+                    system("clear");
+
+                    switch(selection){
+
+                        case 1:
+                            controller.apagarDados();
+                            cout << "Alterações salvas com sucesso!" << endl;
+                            cout << "\n[Pressione enter para prosseguir]\n";
+                            getchar();
+                            break;
+                        
+                        case 2:
+                            cout << "Alterações não salvas!" << endl;
+                            cout << "\n[Pressione enter para prosseguir]\n";
+                            getchar();
+                            break;
+
+                        default:
+                            cout << "\nOpção inválida!\n";
+                            cout << "\n[Pressione enter para tentar novamente]\n";
+                            getchar();
+                            continue;
+                            
+                    }
+                }
+
+            default:
+                std::cout << "\nOpção inválida!\n";
+
+                std::cout << "\n[Pressione enter para tentar novamente]\n";
+                controller.pause();
+                continue;
+        }
+    }
+}
+
+void Menu :: menuApagarInsumo(Controller &controller){
+    std::string selection; 
+    bool flag = false;
+    int index;
+
+    while(true){
+        if(flag){
+            break;
+        }
+
+        system("clear");
+
+        std::cout << "\n---------------------- APAGAR INSUMOS ----------------------\n\n";
+        
+        std::cout << "Informe o nome do insumo que será apagado\n";
+
+        std::cout << "\n[Pressione 0 para voltar]\n";        
+        
+        std::cout << "\n------------------------------------------------------------\n";
+
+        std::getline(std::cin, selection);
+
+        if(selection == "0"){
+            flag = true;
+            
+        }else{
+            
+            index = controller.pesquisar("BR", selection, 1);
+
+            system("clear");
+
+            if(index == -1){
+                std::cout << "\nNão foi identificado nenhum insumo com nome \"" << selection << "\".\n";
+
+                std::cout << "\n[Pressione enter para tentar novamente]\n\n";
+                getchar();
+
+            } else {
+
+                    while(true){
+                        int selection;
+
+                        cout << "Deseja salvar as alterações?" <<endl;
+                        cout << "[1] Sim" << endl;
+                        cout << "[2] Não" << endl;
+
+                        cin >> selection;
+
+                        system("clear");
+
+                        switch(selection){
+
+                            case 1:
+                                controller.apagarInsumo(index);
+                                cout << "Alterações salvas com sucesso!" << endl;
+                                cout << "\n[Pressione enter para prosseguir]\n";
+                                getchar();
+                                break;
+                            
+                            case 2:
+                                cout << "Alterações não salvas!" << endl;
+                                cout << "\n[Pressione enter para prosseguir]\n";
+                                getchar();
+                                break;
+
+                            default:
+                                cout << "\nOpção inválida!\n";
+                                cout << "\n[Pressione enter para tentar novamente]\n";
+                                getchar();
+                                continue;
+                                
+                    }
+                }
+            }
+        }
+    }
+}
+
+void Menu :: menuModificar(Controller &controller){
+
+    std::string selection; 
+    bool flag = false;
+    int index;
+
+    while(true){
+        if(flag){
+            break;
+        }
+
+        system("clear");
+
+        std::cout << "\n--------------------- MODIFICAR INSUMOS --------------------\n\n";
+        
+        std::cout << "Informe o nome do insumo que será modificado\n";
+
+        std::cout << "\n[Pressione 0 para voltar]\n";        
+        
+        std::cout << "\n------------------------------------------------------------\n";
+
+        std::getline(std::cin, selection);
+
+        if(selection == "0"){
+            flag = true;
+            
+        }else{            
+            index = controller.pesquisar("BR", selection, 1);
+
+            system("clear");
+
+            if(index == -1){
+                std::cout << "\nNão foi identificado nenhum insumo com nome \"" << selection << "\".\n";
+
+                std::cout << "\n[Pressione enter para tentar novamente]\n\n";
+                getchar();
+
+            } else {
+
+                while(true){
+                    int selection;
+
+                    cout << "Deseja salvar as alterações?" <<endl;
+                    cout << "[1] Sim" << endl;
+                    cout << "[2] Não" << endl;
+
+                    cin >> selection;
+
+                    system("clear");
+
+                    switch(selection){
+
+                        case 1:
+                            controller.modificarInsumo(index);
+                            cout << "Alterações salvas com sucesso!" << endl;
+                            cout << "\n[Pressione enter para prosseguir]\n";
+                            getchar();
+                            break;
+                        
+                        case 2:
+                            cout << "Alterações não salvas!" << endl;
+                            cout << "\n[Pressione enter para prosseguir]\n";
+                            getchar();
+                            break;
+
+                        default:
+                            cout << "\nOpção inválida!\n";
+                            cout << "\n[Pressione enter para tentar novamente]\n";
+                            getchar();
+                            continue;
+                            
+                    }
+                }
+            }
         }
     }
 }
@@ -524,7 +754,7 @@ void Menu :: menuEnviarInsumo(Controller &controller,int estado){
 
         std::cout << "\n------------ SELECIONE O NOME DO INSUMO DESEJADO -----------\n\n";
 
-        std::cout << "Informe o nome do insumo que será enviado.\n";
+        std::cout << "Informe o nome do insumo que será enviado\n";
 
         std::cout << "\n[Pressione 0 para voltar]\n";        
         

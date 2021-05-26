@@ -12,8 +12,13 @@ class Menu {
         void menuConsulta(Controller &);
         void menuCadastro(Controller &);
         void menuAcrescentar(Controller &);
-        void menuModificar(Controller &);
+        void menuAlteracoes(Controller &);
         void menuEnviarParaEstado(Controller &);
+
+        void menuModificar(Controller &);
+        void menuApagar(Controller &);
+
+        void menuApagarInsumo(Controller &);
 
         void menuEnviarInsumo(Controller &, int estado);
 

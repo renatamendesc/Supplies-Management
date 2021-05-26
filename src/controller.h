@@ -29,6 +29,7 @@ class Controller {
         
         void modificarInsumo(int);
         void apagarInsumo(int);
+        void apagarDados();
 
         void acrescentarInsumos(int, int);
 

@@ -48,6 +48,8 @@ void Persistencia :: inicializacao(Controller &controller){
         }else{
             cout << "---Problema ao abrir o arquivo---" <<endl;
         }
+
+        flag = false;
     }
 
     Insumo *insumo;
@@ -56,7 +58,7 @@ void Persistencia :: inicializacao(Controller &controller){
 
         int index = controller.pesquisar(dados[i][0], "", 2);
 
-        if(stoi(dados[i][1]) == 1){ // se vacina
+        if(dados[i][1] == "Vacina"){ // se vacina
 
             dados[i].erase(dados[i].begin());
             dados[i].erase(dados[i].begin()); 
@@ -66,7 +68,7 @@ void Persistencia :: inicializacao(Controller &controller){
 
         }
 
-        if(stoi(dados[i][1]) == 2){ // se medicamento
+        if(dados[i][1] == "Medicamento"){ // se medicamento
 
             dados[i].erase(dados[i].begin());
             dados[i].erase(dados[i].begin());
@@ -76,7 +78,7 @@ void Persistencia :: inicializacao(Controller &controller){
 
         }
 
-        if(stoi(dados[i][1]) == 3){ // se epi
+        if(dados[i][1] == "EPI"){ // se epi
 
             dados[i].erase(dados[i].begin());
             dados[i].erase(dados[i].begin()); 
@@ -91,6 +93,27 @@ void Persistencia :: inicializacao(Controller &controller){
 }
 
 void Persistencia :: finalizacao(Controller &controller){
+
+    ofstream del;
+    ofstream init;
+
+    string arquivos[3] = {"vacinas.csv", "medicamentos.csv", "epi.csv"};  
+    string arquivosInfo[3] = {
+
+    "estado,tipo,nome,fabricante,dataDeValidade,descricao,valor,estoque,tecnologia,dosesNecessarias,intervaloDoses,eficaciaGeral,temperaturaArmazenada", 
+    "estado,tipo,nome,fabricante,dataDeValidade,descricao,valor,estoque,modoAdministracao,tipoDisponibilizado,contraIndicacao,efeitosColaterais", 
+    "estado,tipo,nome,fabricante,dataDeValidade,descricao,valor,estoque,material,quantidadeDeUsos"
+    
+    };
+
+    for(int i = 0; i < 3; i++){
+        del.open(arquivos[i], ofstream::out | ofstream::trunc);
+        del.close();
+
+        init.open(arquivos[i], ios_base::app);
+        init << arquivosInfo[i];
+        init.close();
+    }
 
     vector <Local> auxiliar = controller.getLocais();
 

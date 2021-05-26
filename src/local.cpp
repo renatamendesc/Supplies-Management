@@ -7,14 +7,7 @@ void Local :: setSigla(string sigla){
 }
 
 void Local :: setInsumo(Insumo *insumo){
-
-    cout << insumo->getNome() << endl;
-
     insumos.push_back(insumo);
-
-    cout << insumos[insumos.size()-1]->getNome();
-
-    getchar();
 }
 
 string Local :: getSigla(){
@@ -23,4 +16,21 @@ string Local :: getSigla(){
 
 vector <Insumo *> Local :: getInsumos(){
     return this->insumos;
+}
+
+void Local :: recadastraInsumo(int iInsumo){
+
+    this->insumos[iInsumo]->cadastraAtributos();
+}
+
+void Local :: apagarInsumo(int iInsumo){
+
+    this->insumos.erase(this->insumos.begin() + iInsumo);
+
+}
+
+void Local :: adicionarEstoque(int unidades){
+
+    this->insumos[this->insumos.size()-1]->setEstoque(unidades);
+
 }

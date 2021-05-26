@@ -24,9 +24,6 @@ void Insumo :: setDescricao(string descricao){
 
 void Insumo :: setEstoque(int estoque){
     this->estoque = estoque;
-
-    cout << "Estoque: " << this->estoque << endl;
-    getchar();
 }
 
 void Insumo :: setTipo(int tipo){
@@ -118,7 +115,7 @@ void Insumo :: salvarDados(string estado){
         vacina.open("vacinas.csv", ios_base::app);
 
         vacina << endl << estado << ",";
-        vacina << "vacina,";
+        vacina << "Vacina,";
         vacina << this->nome << ",";
         vacina << this->fabricante << ",";
         vacina << this->dataDeValidade << ",";
@@ -135,7 +132,7 @@ void Insumo :: salvarDados(string estado){
         medicamento.open("medicamentos.csv", ios_base::app);
 
         medicamento << endl << estado << ",";
-        medicamento << "medicamento,";
+        medicamento << "Medicamento,";
         medicamento << this->nome << ",";
         medicamento << this->fabricante << ",";
         medicamento << this->dataDeValidade << ",";
@@ -152,7 +149,7 @@ void Insumo :: salvarDados(string estado){
         epi.open("epi.csv", ios_base::app);
 
         epi << endl << estado << ",";
-        epi << "epi,";
+        epi << "EPI,";
         epi << this->nome << ",";
         epi << this->fabricante << ",";
         epi << this->dataDeValidade << ",";
@@ -171,7 +168,7 @@ void Insumo :: coletaDados(vector <string> dados){
         this->setFabricante(dados[1]);
         this->setDataDeValidade(dados[2]);
         this->setDescricao(dados[3]);
-        this->setValor(stoi(dados[4]));
+        this->setValor(stof(dados[4]));
         this->setEstoque(stoi(dados[5]));
 
 }

@@ -26,7 +26,6 @@ void Vacina :: setTemperaturaArmazenada(string temperatura){
     this->temperaturaArmazenada = temperatura;
 }
 
-
 string Vacina :: getTecnologia(){
     return this->tecnologia;
 }
@@ -46,7 +45,6 @@ string Vacina :: getEficaciaGeral(){
 string Vacina :: getTemperaturaArmazenada(){
     return this->temperaturaArmazenada;
 }
-
 
 void Vacina :: cadastraAtributos(){
 

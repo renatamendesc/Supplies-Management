@@ -18,6 +18,10 @@ class Local {
         void setSigla(std::string);
         void setInsumo(Insumo *);
 
+        void apagarInsumo(int);
+        void recadastraInsumo(int);
+        void adicionarEstoque(int);
+
 };
 
 #endif
