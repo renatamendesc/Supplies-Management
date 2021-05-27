@@ -19,8 +19,6 @@ vector <Local> Controller :: getLocais(){
 }
 
 void Controller :: cadastraInsumosMinisterio(int tipo){
-
-    system("clear");
     
     Insumo *insumo;
 
@@ -45,40 +43,57 @@ void Controller :: cadastraInsumosMinisterio(int tipo){
     while(true){
         int selection;
 
-        cout << "Deseja salvar as alterações?" <<endl;
+        system("clear");
+
+        std::cout << "\n-------------------------------------------------------------\n";
+
+        cout << "\nDeseja mesmo salvar o cadastro?" <<endl;
         cout << "[1] Sim" << endl;
         cout << "[2] Não" << endl;
+
+        std::cout << "\n-------------------------------------------------------------\n";
 
         cin >> selection;
 
         system("clear");
 
-        switch(selection){
-
-            case 1:
-                // Adiciona o insumo no estoque do Ministério da Saúde
-                this->locais[0].setInsumo(insumo);
-                cout << "Alterações salvas com sucesso!" << endl;
-                cout << "\n[Pressione enter para prosseguir]\n";
-                getchar();
-                continue;
+        if(selection == 1){            
+            this->locais[0].setInsumo(insumo); // Adiciona o insumo no estoque do Ministério da Saúde
             
-            case 2:
-                cout << "Alterações não salvas!" << endl;
-                cout << "\n[Pressione enter para prosseguir]\n";
-                getchar();
-                continue;
+            cout << "\n-------------------------------------------------------------\n";
+            
+            cout << "\nCadastro salvo com sucesso!\n";
+            cout << "\n[Pressione enter para prosseguir]\n";
 
-            default:
-                cout << "\nOpção inválida!\n";
+            cout << "\n-------------------------------------------------------------\n";
 
-                cout << "\n[Pressione enter para tentar novamente]\n";
-                getchar();
-                continue;
-                
+            this->pause();
+            break;
+        
+        } else if(selection == 2){
+            cout << "\n-------------------------------------------------------------\n";
+
+            cout << "\nCadastro descartado!\n";
+            cout << "\n[Pressione enter para prosseguir]\n";
+
+            cout << "\n-------------------------------------------------------------\n";
+            
+            this->pause();
+            break;
+
+        } else {
+            cout << "\n-------------------------------------------------------------\n";
+
+            cout << "\nOpção inválida!" << endl;
+            cout << "\n[Pressione enter para tentar novamente]\n";
+
+            cout << "\n-------------------------------------------------------------\n";
+            
+            this->pause();
+            continue;
+
         }
-    }
-     
+    } 
 }
 
 void Controller :: distribuiInsumos(int iInsumo, int iLocal, int unidades){
@@ -113,8 +128,6 @@ void Controller :: distribuiInsumos(int iInsumo, int iLocal, int unidades){
 
 void Controller :: consultaInsumosEstoque(int iLocal){
 
-    system("clear");
-
     if(this->locais[iLocal].getInsumos().size() == 0){
         cout << "\nNão há nada cadastrado no sistema!\n";
     }
@@ -132,7 +145,6 @@ void Controller :: consultaInsumosEstoque(int iLocal){
 
 void Controller :: consultaTipoInsumosEstoque(int iLocal, int tipo){
 
-    system("clear");
     int contador = 0;
     
     // Percorre insumos existentes no local
@@ -154,8 +166,6 @@ void Controller :: consultaTipoInsumosEstoque(int iLocal, int tipo){
 }
 
 void Controller :: consultaInsumosDescricao(int iLocal){
-
-    system("clear");
     
     if(this->locais[iLocal].getInsumos().size() == 0){
         cout << "\nNão há nada cadastrado no sistema!\n";
@@ -167,9 +177,10 @@ void Controller :: consultaInsumosDescricao(int iLocal){
         // Exibe informações do insumo
         this->locais[iLocal].getInsumos()[i]->exibeInformacoes();
         cout << endl;
+
     }
 
-    cout << "\n[Pressione enter para voltar]\n";
+    cout << "[Pressione enter para voltar]\n";
     getchar();
 
 }

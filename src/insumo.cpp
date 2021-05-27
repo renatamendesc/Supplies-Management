@@ -112,7 +112,7 @@ void Insumo :: salvarDados(string estado){
     if(this->tipo == 1){
 
         ofstream vacina;
-        vacina.open("vacinas.csv", ios_base::app);
+        vacina.open("dados/vacinas.csv", ios_base::app);
 
         vacina << endl << estado << ",";
         vacina << "Vacina,";
@@ -129,7 +129,7 @@ void Insumo :: salvarDados(string estado){
     if(this->tipo == 2){
 
         ofstream medicamento;
-        medicamento.open("medicamentos.csv", ios_base::app);
+        medicamento.open("dados/medicamentos.csv", ios_base::app);
 
         medicamento << endl << estado << ",";
         medicamento << "Medicamento,";
@@ -146,7 +146,7 @@ void Insumo :: salvarDados(string estado){
     if(this->tipo == 3){
 
         ofstream epi;
-        epi.open("epi.csv", ios_base::app);
+        epi.open("dados/epi.csv", ios_base::app);
 
         epi << endl << estado << ",";
         epi << "EPI,";

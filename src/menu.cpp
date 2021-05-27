@@ -14,18 +14,18 @@ void Menu :: menuPrincipal(Controller &controller){
             break;
         }
         
-        std::cout << "\n-------------- SISTEMA PARA CADASTRO DE INSUMOS --------------\n\n";
+        cout << "\n-------------- SISTEMA PARA CADASTRO DE INSUMOS --------------\n\n";
 
-        std::cout << "[1] Cadastrar um insumo\n";
-        std::cout << "[2] Consultar dados\n";
-        std::cout << "[3] Comprar um insumo\n";
-        std::cout << "[4] Modificar dados\n";
-        std::cout << "[5] Enviar um insumo\n";
-        std::cout << "[0] Sair\n";
+        cout << "[1] Cadastrar um insumo\n";
+        cout << "[2] Consultar dados\n";
+        cout << "[3] Comprar um insumo\n";
+        cout << "[4] Modificar dados\n";
+        cout << "[5] Enviar um insumo\n";
+        cout << "[0] Sair\n";
         
-        std::cout << "\n-------------------------------------------------------------\n";
+        cout << "\n-------------------------------------------------------------\n";
 
-        std::cin >> selection;
+        cin >> selection;
 
         getchar();
 
@@ -56,11 +56,16 @@ void Menu :: menuPrincipal(Controller &controller){
                 continue;
 
             default:
-                std::cout << "\nOpção inválida!" << endl;
+                system("clear");
 
-                std::cout << "\n[Pressione enter para tentar novamente]\n";
+                cout << "\n-------------------------------------------------------------\n";
+
+                cout << "\nOpção inválida!" << endl;
+                cout << "\n[Pressione enter para tentar novamente]\n";
+
+                cout << "\n-------------------------------------------------------------\n";
                 
-                controller.pause();
+                getchar();
                 continue;
         }
     }
@@ -78,15 +83,15 @@ void Menu :: menuConsulta(Controller &controller){
             break;
         }
         
-        std::cout << "\n--------------------- CONSULTA DE DADOS ---------------------\n\n";
+        cout << "\n--------------------- CONSULTA DE DADOS ---------------------\n\n";
 
-        std::cout << "[1] Consultar dados do Ministério da Saúde\n";
-        std::cout << "[2] Consultar dados de estados\n";
-        std::cout << "[0] Voltar\n";
+        cout << "[1] Consultar dados do Ministério da Saúde\n";
+        cout << "[2] Consultar dados de estados\n";
+        cout << "[0] Voltar\n";
         
-        std::cout << "\n-------------------------------------------------------------\n";
+        cout << "\n-------------------------------------------------------------\n";
 
-        std::cin >> selection;
+        cin >> selection;
 
         getchar();
 
@@ -105,11 +110,16 @@ void Menu :: menuConsulta(Controller &controller){
                 continue;
 
             default:
-                std::cout << "\nOpção inválida!" << endl;
+                system("clear");
 
-                std::cout << "\n[Pressione enter para tentar novamente]\n";
+                cout << "\n-------------------------------------------------------------\n";
+
+                cout << "\nOpção inválida!" << endl;
+                cout << "\n[Pressione enter para tentar novamente]\n";
+
+                cout << "\n-------------------------------------------------------------\n";
                 
-                controller.pause();
+                getchar();
                 continue;
         }
     }  
@@ -135,15 +145,15 @@ void Menu :: menuConsultaGeral(Controller &controller, int iLocal){
             break;
         }
         
-        std::cout << "\n-------------------- CONSULTA DE DADOS (" << local << ") -------------------\n\n";
+        cout << "\n-------------------- CONSULTA DE DADOS (" << local << ") -------------------\n\n";
 
-        std::cout << "[1] Consultar estoque\n";
-        std::cout << "[2] Consultar informações gerais\n";
-        std::cout << "[0] Voltar\n";
+        cout << "[1] Consultar estoque\n";
+        cout << "[2] Consultar informações gerais\n";
+        cout << "[0] Voltar\n";
         
-        std::cout << "\n-------------------------------------------------------------\n";
+        cout << "\n-------------------------------------------------------------\n";
 
-        std::cin >> selection;
+        cin >> selection;
 
         getchar();
 
@@ -154,6 +164,10 @@ void Menu :: menuConsultaGeral(Controller &controller, int iLocal){
                 continue;
 
             case 2:
+                system("clear");
+
+                cout << "\n------------ CONSULTA DE INFORMAÇÕES GERAIS (" << local << ")------------\n\n";
+
                 controller.consultaInsumosDescricao(iLocal);
                 continue;
 
@@ -162,11 +176,17 @@ void Menu :: menuConsultaGeral(Controller &controller, int iLocal){
                 continue;
 
             default:
-                std::cout << "\nOpção inválida!" << endl;
+                system("clear");
 
-                std::cout << "\n[Pressione enter para tentar novamente]\n";
+                cout << "\n-------------------------------------------------------------\n";
+
+                cout << "\nOpção inválida!" << endl;
+
+                cout << "\n[Pressione enter para tentar novamente]\n";
+
+                cout << "\n-------------------------------------------------------------\n";
                 
-                controller.pause();
+                getchar();
                 continue;
         }
     }
@@ -174,7 +194,7 @@ void Menu :: menuConsultaGeral(Controller &controller, int iLocal){
 
 void Menu :: menuConsultaEstado(Controller &controller){
     
-    std::string selection;
+    string selection;
     bool flag = false;
     
     while(1){
@@ -185,15 +205,15 @@ void Menu :: menuConsultaEstado(Controller &controller){
             break;
         }
 
-        std::cout << "\n---------------- CONSULTA DE DADOS DE ESTADOS ----------------\n\n";
+        cout << "\n---------------- CONSULTA DE DADOS DE ESTADOS ----------------\n\n";
 
-        std::cout << "Informe qual estado você deseja consultar (sigla do estado)\n";
+        cout << "Informe qual estado você deseja consultar (sigla do estado)\n";
 
-        std::cout << "\n[Pressione 0 para voltar]\n"; 
+        cout << "\n[Pressione 0 para voltar]\n"; 
         
-        std::cout << "\n-------------------------------------------------------------\n";
+        cout << "\n-------------------------------------------------------------\n";
         
-        std::getline(std::cin, selection);
+        getline(cin, selection);
 
         if(selection == "0"){
             break;  
@@ -204,9 +224,9 @@ void Menu :: menuConsultaEstado(Controller &controller){
             int index = controller.pesquisar(selection, "", 2);
 
             if(index == -1){
-                std::cout << "\nNão foi identificado nenhum estado com a sigla \"" << selection << "\".\n";
+                cout << "\nNão foi identificado nenhum estado com a sigla \"" << selection << "\".\n";
 
-                std::cout << "\n[Pressione enter para tentar novamente]\n";
+                cout << "\n[Pressione enter para tentar novamente]\n";
                 getchar();
 
             }else{
@@ -236,15 +256,15 @@ void Menu :: menuConsultaEstoque(Controller &controller, int iLocal){
             break;
         }
         
-        std::cout << "\n-------------------- CONSULTA DE DADOS (" << local << ") -------------------\n\n";
+        cout << "\n------------------ CONSULTA DE ESTOQUE (" << local << ") -----------------\n\n";
 
-        std::cout << "[1] Consultar estoque por tipo\n";
-        std::cout << "[2] Consultar estoque geral\n";
-        std::cout << "[0] Voltar\n";
+        cout << "[1] Consultar estoque por tipo\n";
+        cout << "[2] Consultar estoque geral\n";
+        cout << "[0] Voltar\n";
         
-        std::cout << "\n-------------------------------------------------------------\n";
+        cout << "\n-------------------------------------------------------------\n";
 
-        std::cin >> selection;
+        cin >> selection;
 
         getchar();
 
@@ -255,6 +275,10 @@ void Menu :: menuConsultaEstoque(Controller &controller, int iLocal){
                 continue;
 
             case 2:
+                system("clear");
+
+                cout << "\n--------------- CONSULTA DE ESTOQUE GERAL (" << local << ") --------------\n\n";
+
                 controller.consultaInsumosEstoque(iLocal);
                 continue;
 
@@ -263,11 +287,16 @@ void Menu :: menuConsultaEstoque(Controller &controller, int iLocal){
                 continue;
 
             default:
-                std::cout << "\nOpção inválida!" << endl;
+                system("clear");
 
-                std::cout << "\n[Pressione enter para tentar novamente]\n";
+                cout << "\n-------------------------------------------------------------\n";
+
+                cout << "\nOpção inválida!" << endl;
+                cout << "\n[Pressione enter para tentar novamente]\n";
+
+                cout << "\n-------------------------------------------------------------\n";
                 
-                controller.pause();
+                getchar();
                 continue;
         }
     }
@@ -292,29 +321,41 @@ void Menu :: menuConsultaEstoqueTipo(Controller &controller, int iLocal){
             break;
         }
 
-        std::cout << "\n------------- CONSULTA DE INSUMOS POR TIPO (" << local << ") --------------\n\n";
+        cout << "\n------------- CONSULTA DE INSUMOS POR TIPO (" << local << ") --------------\n\n";
         
-        std::cout << "[1] Consultar estoque de vacinas\n";
-        std::cout << "[2] Cadastrar estoque de medicamentos\n";
-        std::cout << "[3] Cadastrar estoque de EPIs\n";
-        std::cout << "[0] Voltar\n";
+        cout << "[1] Consultar estoque de vacinas\n";
+        cout << "[2] Cadastrar estoque de medicamentos\n";
+        cout << "[3] Cadastrar estoque de EPIs\n";
+        cout << "[0] Voltar\n";
         
-        std::cout << "\n-------------------------------------------------------------\n";
+        cout << "\n-------------------------------------------------------------\n";
         
-        std::cin >> selection;
+        cin >> selection;
         getchar();
 
         switch(selection){
             
             case 1:
+                system("clear");
+
+                cout << "\n------------ CONSULTA DE ESTOQUE DE VACINAS (" << local << ") ------------\n\n";
+
                 controller.consultaTipoInsumosEstoque(iLocal, 1);
                 continue;
 
             case 2:
+                system("clear");
+
+                cout << "\n--------- CONSULTA DE ESTOQUE DE MEDICAMENTOS (" << local << ") ---------\n\n";
+
                 controller.consultaTipoInsumosEstoque(iLocal, 2);
                 continue;
 
             case 3:
+                system("clear");
+
+                cout << "\n------------- CONSULTA DE ESTOQUE DE EPIS (" << local << ") --------------\n\n";
+
                 controller.consultaTipoInsumosEstoque(iLocal, 3);
                 continue;
 
@@ -323,12 +364,17 @@ void Menu :: menuConsultaEstoqueTipo(Controller &controller, int iLocal){
                 continue;
 
             default:
-                std::cout << "\nOpção inválida!\n" << endl;
+                system("clear");
 
-                std::cout << "\n[Pressione enter para tentar novamente]\n";
+                cout << "\n-------------------------------------------------------------\n";
+
+                cout << "\nOpção inválida!" << endl;
+                cout << "\n[Pressione enter para tentar novamente]\n";
+
+                cout << "\n-------------------------------------------------------------\n";
                 
-                controller.pause();
-                continue;       
+                getchar();
+                continue;      
         }
     }
 }
@@ -345,30 +391,42 @@ void Menu :: menuCadastro(Controller &controller){
             break;
         }
 
-        std::cout << "\n-------------------- CADASTRO DE INSUMOS ---------------------\n\n";
+        cout << "\n-------------------- CADASTRO DE INSUMOS ---------------------\n\n";
         
-        std::cout << "[1] Cadastrar uma vacina\n";
-        std::cout << "[2] Cadastrar um medicamento\n";
-        std::cout << "[3] Cadastrar um EPI\n";
-        std::cout << "[0] Voltar\n";
+        cout << "[1] Cadastrar uma vacina\n";
+        cout << "[2] Cadastrar um medicamento\n";
+        cout << "[3] Cadastrar um EPI\n";
+        cout << "[0] Voltar\n";
         
-        std::cout << "\n-------------------------------------------------------------\n";
+        cout << "\n-------------------------------------------------------------\n";
         
-        std::cin >> selection;
+        cin >> selection;
 
         getchar();
 
         switch(selection){
             
             case 1:
+                system("clear");
+
+                cout << "\n------------------- CADASTRAR UMA VACINA --------------------\n\n";
+                
                 controller.cadastraInsumosMinisterio(1);
                 continue;
 
             case 2:
+                system("clear");
+
+                cout << "\n----------------- CADASTRAR UM MEDICAMENTO ------------------\n\n";
+
                 controller.cadastraInsumosMinisterio(2);
                 continue;
 
             case 3:
+                system("clear");
+
+                cout << "\n--------------------- CADASTRAR UM EPI ----------------------\n\n";
+
                 controller.cadastraInsumosMinisterio(3);
                 continue;
 
@@ -377,11 +435,16 @@ void Menu :: menuCadastro(Controller &controller){
                 continue;
 
             default:
-                std::cout << "\nOpção inválida!\n" << endl;
+                system("clear");
 
-                std::cout << "\n[Pressione enter para tentar novamente]\n";
+                cout << "\n-------------------------------------------------------------\n";
+
+                cout << "\nOpção inválida!" << endl;
+                cout << "\n[Pressione enter para tentar novamente]\n";
+
+                cout << "\n-------------------------------------------------------------\n";
                 
-                controller.pause();
+                getchar();
                 continue;
                 
         }
@@ -401,15 +464,15 @@ void Menu :: menuAcrescentar(Controller &controller){
             break;
         }
 
-        std::cout << "\n-------------- ACRESCENTAR INSUMOS AO ESTOQUE ---------------\n\n";
+        cout << "\n-------------- ACRESCENTAR INSUMOS AO ESTOQUE ---------------\n\n";
 
-        std::cout << "Informe o nome do insumo que será comprado\n";
+        cout << "Informe o nome do insumo que será comprado\n";
 
-        std::cout << "\n[Pressione 0 para voltar]\n";
+        cout << "\n[Pressione 0 para voltar]\n";
 
-        std::cout << "\n-------------------------------------------------------------\n";
+        cout << "\n-------------------------------------------------------------\n";
         
-        std::getline(std::cin, selection);
+        getline(cin, selection);
         
         if(selection == "0"){
             flag = true;
@@ -422,23 +485,27 @@ void Menu :: menuAcrescentar(Controller &controller){
 
             if(index == -1){
 
-                std::cout << "\nNão foi identificado nenhum insumo com nome \"" << selection << "\".\n";
+                cout << "\n-------------------------------------------------------------\n";
 
-                std::cout << "\n[Pressione enter para tentar novamente]\n\n";
+                cout << "\nNão foi identificado nenhum insumo com nome \"" << selection << "\".\n";
+
+                cout << "\n[Pressione enter para tentar novamente]\n";
+
+                cout << "\n-------------------------------------------------------------\n";
                 getchar();
 
             } else {
                 int quantidade;
                 
-                std::cout << "\n-------------- ACRESCENTAR INSUMOS AO ESTOQUE ----------------\n\n";
+                cout << "\n-------------- ACRESCENTAR INSUMOS AO ESTOQUE ----------------\n\n";
 
-                std::cout << "Informe a quantidade de insumos que deseja adquirir" << endl;
+                cout << "Informe a quantidade de insumos que deseja adquirir" << endl;
 
-                std::cout << "\n[Pressione 0 para voltar]\n";
+                cout << "\n[Pressione 0 para voltar]\n";
 
-                std::cout << "\n-------------------------------------------------------------\n";
+                cout << "\n-------------------------------------------------------------\n";
 
-                std::cin >> quantidade;
+                cin >> quantidade;
 
                 getchar();
 
@@ -447,6 +514,18 @@ void Menu :: menuAcrescentar(Controller &controller){
 
                 }else{
                     controller.acrescentarInsumos(index, quantidade);
+
+                    system("clear");
+
+                    cout << "\n-------------------------------------------------------------\n\n";
+
+                    cout << "Estoque atualizado com sucesso!" << endl;
+
+                    cout << "\n[Pressione enter para prosseguir]\n";
+
+                    cout << "\n-------------------------------------------------------------\n";
+
+                    getchar();
 
                 }
             }
@@ -465,15 +544,15 @@ void Menu :: menuAlteracoes(Controller &controller){
 
         system("clear");
 
-        std::cout << "\n--------------------- MODIFICAR INSUMOS --------------------\n\n";
+        cout << "\n--------------------- MODIFICAR INSUMOS --------------------\n\n";
         
-        std::cout << "[1] Modificar dados de insumos\n";
-        std::cout << "[2] Apagar dados de insumos\n";
-        std::cout << "[0] Voltar\n";
+        cout << "[1] Modificar dados de insumos\n";
+        cout << "[2] Apagar dados de insumos\n";
+        cout << "[0] Voltar\n";
 
-        std::cout << "\n------------------------------------------------------------\n";
+        cout << "\n------------------------------------------------------------\n";
 
-        std::cin >> selection;
+        cin >> selection;
 
         getchar();
 
@@ -492,10 +571,16 @@ void Menu :: menuAlteracoes(Controller &controller){
                 continue;
 
             default:
-                std::cout << "\nOpção inválida!\n";
+                system("clear");
 
-                std::cout << "\n[Pressione enter para tentar novamente]\n";
-                controller.pause();
+                cout << "\n-------------------------------------------------------------\n";
+
+                cout << "\nOpção inválida!" << endl;
+                cout << "\n[Pressione enter para tentar novamente]\n";
+
+                cout << "\n-------------------------------------------------------------\n";
+                
+                getchar();
                 continue;
         }
     }
@@ -512,15 +597,15 @@ void Menu :: menuApagar(Controller &controller){
 
         system("clear");
 
-        std::cout << "\n----------------------- APAGAR INSUMOS ---------------------\n\n";
+        cout << "\n----------------------- APAGAR INSUMOS ---------------------\n\n";
         
-        std::cout << "[1] Apagar um insumo\n";
-        std::cout << "[2] Apagar todos os insumos\n";
-        std::cout << "[0] Voltar\n";
+        cout << "[1] Apagar um insumo\n";
+        cout << "[2] Apagar todos os insumos\n";
+        cout << "[0] Voltar\n";
 
-        std::cout << "\n------------------------------------------------------------\n";
+        cout << "\n------------------------------------------------------------\n";
 
-        std::cin >> selection;
+        cin >> selection;
 
         getchar();
 
@@ -536,53 +621,82 @@ void Menu :: menuApagar(Controller &controller){
 
             case 2:
 
-                while(true){
-                    int selection;
+                int selection; 
 
-                    cout << "Deseja salvar as alterações?" <<endl;
-                    cout << "[1] Sim" << endl;
-                    cout << "[2] Não" << endl;
+                while(true){
+                    system("clear");
+
+                    cout << "\n-------------------------------------------------------------\n";
+
+                    cout << "\nDeseja mesmo apagar todos os insumos?\n";
+                    cout << "[1] Sim\n";
+                    cout << "[2] Não\n";
+
+                    cout << "\nATENÇÃO: Ao confirmar esta ação, todos os dados cadastrados\nno sistema serão deletados!\n";
+
+                    cout << "\n-------------------------------------------------------------\n";
 
                     cin >> selection;
 
                     system("clear");
 
-                    switch(selection){
+                    if(selection == 1){            
+                        controller.apagarDados();
 
-                        case 1:
-                            controller.apagarDados();
-                            cout << "Alterações salvas com sucesso!" << endl;
-                            cout << "\n[Pressione enter para prosseguir]\n";
-                            getchar();
-                            break;
+                        cout << "\n-------------------------------------------------------------\n";
+
+                        cout << "\nDados apagados com sucesso!\n";
+                        cout << "\n[Pressione enter para prosseguir]\n";
+
+                        cout << "\n-------------------------------------------------------------\n";
+
+                        controller.pause();
+                        break;
+                    
+                    } else if(selection == 2){
+                        cout << "\n-------------------------------------------------------------\n";
+
+                        cout << "\nAlterações descartadas!\n";
+                        cout << "\n[Pressione enter para prosseguir]\n";
+
+                        cout << "\n-------------------------------------------------------------\n";
+
+                        controller.pause();
+                        break;
+
+                    } else {
+                        cout << "\n-------------------------------------------------------------\n";
+
+                        cout << "\nOpção inválida!" << endl;
+                        cout << "\n[Pressione enter para tentar novamente]\n";
+
+                        cout << "\n-------------------------------------------------------------\n";
                         
-                        case 2:
-                            cout << "Alterações não salvas!" << endl;
-                            cout << "\n[Pressione enter para prosseguir]\n";
-                            getchar();
-                            break;
+                        controller.pause();
+                        continue;
 
-                        default:
-                            cout << "\nOpção inválida!\n";
-                            cout << "\n[Pressione enter para tentar novamente]\n";
-                            getchar();
-                            continue;
-                            
                     }
                 }
+                continue;
 
             default:
-                std::cout << "\nOpção inválida!\n";
+                system("clear");
 
-                std::cout << "\n[Pressione enter para tentar novamente]\n";
-                controller.pause();
+                cout << "\n-------------------------------------------------------------\n";
+
+                cout << "\nOpção inválida!\n";
+                cout << "\n[Pressione enter para tentar novamente]\n";
+
+                cout << "\n-------------------------------------------------------------\n";
+
+                getchar();
                 continue;
         }
     }
 }
 
 void Menu :: menuApagarInsumo(Controller &controller){
-    std::string selection; 
+    string selection; 
     bool flag = false;
     int index;
 
@@ -593,15 +707,15 @@ void Menu :: menuApagarInsumo(Controller &controller){
 
         system("clear");
 
-        std::cout << "\n---------------------- APAGAR INSUMOS ----------------------\n\n";
+        cout << "\n---------------------- APAGAR INSUMOS ----------------------\n\n";
         
-        std::cout << "Informe o nome do insumo que será apagado\n";
+        cout << "Informe o nome do insumo que será apagado\n";
 
-        std::cout << "\n[Pressione 0 para voltar]\n";        
+        cout << "\n[Pressione 0 para voltar]\n";        
         
-        std::cout << "\n------------------------------------------------------------\n";
+        cout << "\n------------------------------------------------------------\n";
 
-        std::getline(std::cin, selection);
+        getline(cin, selection);
 
         if(selection == "0"){
             flag = true;
@@ -613,45 +727,68 @@ void Menu :: menuApagarInsumo(Controller &controller){
             system("clear");
 
             if(index == -1){
-                std::cout << "\nNão foi identificado nenhum insumo com nome \"" << selection << "\".\n";
+                cout << "\n-------------------------------------------------------------\n";
 
-                std::cout << "\n[Pressione enter para tentar novamente]\n\n";
+                cout << "\nNão foi identificado nenhum insumo com nome \"" << selection << "\".\n";
+
+                cout << "\n[Pressione enter para tentar novamente]\n";
+
+                cout << "\n-------------------------------------------------------------\n";
                 getchar();
-
+                
             } else {
 
-                    while(true){
-                        int selection;
+                while(true){
+                    system("clear");
 
-                        cout << "Deseja salvar as alterações?" <<endl;
-                        cout << "[1] Sim" << endl;
-                        cout << "[2] Não" << endl;
+                    cout << "\n-------------------------------------------------------------\n";
 
-                        cin >> selection;
+                    cout << "\nDeseja mesmo apagar \"" << selection << "\" e todos os dados\nvinculado a esse insumo?\n";
+                    cout << "[1] Sim\n";
+                    cout << "[2] Não\n";
 
-                        system("clear");
+                    cout << "\n-------------------------------------------------------------\n";
 
-                        switch(selection){
+                    int selection; 
+                    cin >> selection;
 
-                            case 1:
-                                controller.apagarInsumo(index);
-                                cout << "Alterações salvas com sucesso!" << endl;
-                                cout << "\n[Pressione enter para prosseguir]\n";
-                                getchar();
-                                break;
-                            
-                            case 2:
-                                cout << "Alterações não salvas!" << endl;
-                                cout << "\n[Pressione enter para prosseguir]\n";
-                                getchar();
-                                break;
+                    system("clear");
 
-                            default:
-                                cout << "\nOpção inválida!\n";
-                                cout << "\n[Pressione enter para tentar novamente]\n";
-                                getchar();
-                                continue;
-                                
+                    if(selection == 1){            
+                        controller.apagarInsumo(index);
+
+                        cout << "\n-------------------------------------------------------------\n";
+
+                        cout << "\nInsumo deletado com sucesso!\n";
+                        cout << "\n[Pressione enter para prosseguir]\n";
+
+                        cout << "\n-------------------------------------------------------------\n";
+
+                        controller.pause();
+                        break;
+                    
+                    } else if(selection == 2){
+                        cout << "\n-------------------------------------------------------------\n";
+
+                        cout << "\nAlterações descartadas!\n";
+                        cout << "\n[Pressione enter para prosseguir]\n";
+
+                        cout << "\n-------------------------------------------------------------\n";
+
+                        controller.pause();
+                        break;
+
+                    } else {
+                        cout << "\n-------------------------------------------------------------\n";
+
+                        cout << "\nOpção inválida!" << endl;
+                        cout << "\n[Pressione enter para tentar novamente]\n";
+
+                        cout << "\n-------------------------------------------------------------\n";
+                        
+                        getchar();
+                        continue;
+
                     }
                 }
             }
@@ -661,7 +798,7 @@ void Menu :: menuApagarInsumo(Controller &controller){
 
 void Menu :: menuModificar(Controller &controller){
 
-    std::string selection; 
+    string selection; 
     bool flag = false;
     int index;
 
@@ -672,15 +809,15 @@ void Menu :: menuModificar(Controller &controller){
 
         system("clear");
 
-        std::cout << "\n--------------------- MODIFICAR INSUMOS --------------------\n\n";
+        cout << "\n--------------------- MODIFICAR INSUMOS --------------------\n\n";
         
-        std::cout << "Informe o nome do insumo que será modificado\n";
+        cout << "Informe o nome do insumo que será modificado\n";
 
-        std::cout << "\n[Pressione 0 para voltar]\n";        
+        cout << "\n[Pressione 0 para voltar]\n";        
         
-        std::cout << "\n------------------------------------------------------------\n";
+        cout << "\n------------------------------------------------------------\n";
 
-        std::getline(std::cin, selection);
+        getline(cin, selection);
 
         if(selection == "0"){
             flag = true;
@@ -691,45 +828,56 @@ void Menu :: menuModificar(Controller &controller){
             system("clear");
 
             if(index == -1){
-                std::cout << "\nNão foi identificado nenhum insumo com nome \"" << selection << "\".\n";
+                cout << "\n-------------------------------------------------------------\n";
 
-                std::cout << "\n[Pressione enter para tentar novamente]\n\n";
+                cout << "\nNão foi identificado nenhum insumo com nome \"" << selection << "\".\n";
+
+                cout << "\n[Pressione enter para tentar novamente]\n";
+
+                cout << "\n-------------------------------------------------------------\n";
                 getchar();
 
             } else {
+                int selection;
 
                 while(true){
-                    int selection;
-
-                    cout << "Deseja salvar as alterações?" <<endl;
-                    cout << "[1] Sim" << endl;
-                    cout << "[2] Não" << endl;
-
-                    cin >> selection;
-
                     system("clear");
 
-                    switch(selection){
+                    if(selection == 1){            
+                        controller.modificarInsumo(index);
 
-                        case 1:
-                            controller.modificarInsumo(index);
-                            cout << "Alterações salvas com sucesso!" << endl;
-                            cout << "\n[Pressione enter para prosseguir]\n";
-                            getchar();
-                            break;
+                        cout << "\n-------------------------------------------------------------\n";
+
+                        cout << "\nAlterações salvas com sucesso!\n";
+                        cout << "\n[Pressione enter para prosseguir]\n";
+
+                        cout << "\n-------------------------------------------------------------\n";
+
+                        controller.pause();
+                        break;
+                    
+                    } else if(selection == 2){
+                        cout << "\n-------------------------------------------------------------\n";
+
+                        cout << "\nAlterações descartadas!\n";
+                        cout << "\n[Pressione enter para prosseguir]\n";
+
+                        cout << "\n-------------------------------------------------------------\n";
+
+                        controller.pause();
+                        break;
+
+                    } else {
+                        cout << "\n-------------------------------------------------------------\n";
+
+                        cout << "\nOpção inválida!" << endl;
+                        cout << "\n[Pressione enter para tentar novamente]\n";
+
+                        cout << "\n-------------------------------------------------------------\n";
                         
-                        case 2:
-                            cout << "Alterações não salvas!" << endl;
-                            cout << "\n[Pressione enter para prosseguir]\n";
-                            getchar();
-                            break;
+                        getchar();
+                        continue;
 
-                        default:
-                            cout << "\nOpção inválida!\n";
-                            cout << "\n[Pressione enter para tentar novamente]\n";
-                            getchar();
-                            continue;
-                            
                     }
                 }
             }
@@ -752,15 +900,15 @@ void Menu :: menuEnviarInsumo(Controller &controller,int estado){
         if(flag)
             break;
 
-        std::cout << "\n------------ SELECIONE O NOME DO INSUMO DESEJADO -----------\n\n";
+        cout << "\n------------ SELECIONE O NOME DO INSUMO DESEJADO -----------\n\n";
 
-        std::cout << "Informe o nome do insumo que será enviado\n";
+        cout << "Informe o nome do insumo que será enviado\n";
 
-        std::cout << "\n[Pressione 0 para voltar]\n";        
+        cout << "\n[Pressione 0 para voltar]\n";        
         
-        std::cout << "\n-------------------------------------------------------------\n";
+        cout << "\n-------------------------------------------------------------\n";
         
-        std::getline(std::cin, selection);
+        getline(cin, selection);
 
         if(selection == "0"){
             flag = true;
@@ -772,25 +920,28 @@ void Menu :: menuEnviarInsumo(Controller &controller,int estado){
             system("clear");
 
             if(index == -1){
+                cout << "\n-------------------------------------------------------------\n";
 
-                std::cout << "\nNão foi identificado nenhum insumo com nome \"" << selection << "\".\n";
+                cout << "\nNão foi identificado nenhum insumo com nome \"" << selection << "\".\n";
 
-                std::cout << "\n[Pressione enter para tentar novamente]\n\n";
+                cout << "\n[Pressione enter para tentar novamente]\n";
+
+                cout << "\n-------------------------------------------------------------\n";
                 getchar();
 
             } else {
                 
                 int quantidade;
                 
-                std::cout << "\n---------------- ENVIAR INSUMOS AOS ESTADOS ------------------\n\n";
+                cout << "\n---------------- ENVIAR INSUMOS AOS ESTADOS ------------------\n\n";
 
-                std::cout << "Informe a quantidade de insumos que deseja enviar" << endl;
+                cout << "Informe a quantidade de insumos que deseja enviar" << endl;
 
-                std::cout << "\n[Pressione 0 para voltar]\n";
+                cout << "\n[Pressione 0 para voltar]\n";
 
-                std::cout << "\n-------------------------------------------------------------\n";
+                cout << "\n-------------------------------------------------------------\n";
 
-                std::cin >> quantidade;
+                cin >> quantidade;
 
                 getchar();
 
@@ -798,9 +949,9 @@ void Menu :: menuEnviarInsumo(Controller &controller,int estado){
                     continue;
                 
                 } else if(quantidade > controller.getLocais()[0].getInsumos()[index]->getEstoque() || quantidade < 1){ 
-                    std::cout << "\nQuantidade inválida!\n";
+                    cout << "\nQuantidade inválida!\n";
 
-                    std::cout << "\n[Pressione enter para tentar novamente]\n\n";
+                    cout << "\n[Pressione enter para tentar novamente]\n\n";
                     getchar();
 
                 } else {
@@ -825,15 +976,15 @@ void Menu :: menuEnviarParaEstado(Controller &controller){
             break;
         }
 
-        std::cout << "\n----------------- ENVIAR INSUMOS PARA ESTADOS ----------------\n\n";
+        cout << "\n----------------- ENVIAR INSUMOS PARA ESTADOS ----------------\n\n";
 
-        std::cout << "Informe para qual estado você deseja enviar (sigla do estado)\n";
+        cout << "Informe para qual estado você deseja enviar (sigla do estado)\n";
 
-        std::cout << "\n[Pressione 0 para voltar]\n"; 
+        cout << "\n[Pressione 0 para voltar]\n"; 
         
-        std::cout << "\n-------------------------------------------------------------\n";
+        cout << "\n-------------------------------------------------------------\n";
         
-        std::getline(std::cin, selection);
+        getline(cin, selection);
 
         if(selection == "0"){
             break;  
@@ -844,9 +995,16 @@ void Menu :: menuEnviarParaEstado(Controller &controller){
             int index = controller.pesquisar(selection, "", 2);
 
             if(index == -1){
-                std::cout << "\nNão foi identificado nenhum estado com a sigla \"" << selection << "\".\n";
+                system("clear");
 
-                std::cout << "\n[Pressione enter para tentar novamente]\n";
+                cout << "\n-------------------------------------------------------------\n";
+
+                cout << "\nNão foi identificado nenhum estado com nome \"" << selection << "\".\n";
+
+                cout << "\n[Pressione enter para tentar novamente]\n";
+
+                cout << "\n-------------------------------------------------------------\n";
+
                 getchar();
 
             }else{

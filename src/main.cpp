@@ -7,6 +7,7 @@ Breve descrição: Programa que cadastra informações sobre insumos, ligados ao
 
 #include "menu.h"
 #include "persistencia.h"
+#include "controller.h"
 #include <iostream>
 
 using namespace std;

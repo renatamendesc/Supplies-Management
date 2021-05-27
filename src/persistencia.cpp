@@ -14,7 +14,7 @@ void Persistencia :: inicializacao(Controller &controller){
 
     bool flag = false;
 
-    string arquivos[3] = {"vacinas.csv", "medicamentos.csv", "epi.csv"};
+    string arquivos[3] = {"dados/vacinas.csv", "dados/medicamentos.csv", "dados/epi.csv"};
 
     for(int i = 0; i < 3; i++){
 
@@ -97,7 +97,7 @@ void Persistencia :: finalizacao(Controller &controller){
     ofstream del;
     ofstream init;
 
-    string arquivos[3] = {"vacinas.csv", "medicamentos.csv", "epi.csv"};  
+    string arquivos[3] = {"dados/vacinas.csv", "dados/medicamentos.csv", "dados/epi.csv"};  
     string arquivosInfo[3] = {
 
     "estado,tipo,nome,fabricante,dataDeValidade,descricao,valor,estoque,tecnologia,dosesNecessarias,intervaloDoses,eficaciaGeral,temperaturaArmazenada", 

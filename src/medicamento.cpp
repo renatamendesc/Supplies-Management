@@ -43,8 +43,6 @@ string Medicamento :: getEfeitosColaterais(){
 
 void Medicamento::cadastraAtributos(){
 
-    std::cout << "\n----------------- CADASTRAR UM MEDICAMENTO -------------------\n\n";
-
     Insumo::cadastraAtributos();
 
     getchar();
@@ -76,7 +74,7 @@ void Medicamento ::exibeInformacoes(){
 void Medicamento :: salvarDados(string estado){
     
     ofstream medicamento;
-    medicamento.open("medicamentos.csv", ios_base::app);
+    medicamento.open("dados/medicamentos.csv", ios_base::app);
 
     Insumo::salvarDados(estado);
 
