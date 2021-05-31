@@ -224,9 +224,16 @@ void Menu :: menuConsultaEstado(Controller &controller){
             int index = controller.pesquisar(selection, "", 2);
 
             if(index == -1){
-                cout << "\nNão foi identificado nenhum estado com a sigla \"" << selection << "\".\n";
+                system("clear");
+
+                cout << "\n-------------------------------------------------------------\n";
+
+                cout << "\nNão foi identificado nenhum estado com nome \"" << selection << "\".\n";
 
                 cout << "\n[Pressione enter para tentar novamente]\n";
+
+                cout << "\n-------------------------------------------------------------\n";
+
                 getchar();
 
             }else{
@@ -511,8 +518,24 @@ void Menu :: menuAcrescentar(Controller &controller){
 
                 if(quantidade == 0){
                     continue;
+                }
 
-                }else{
+                else if(quantidade < 0){
+                    system("clear");
+
+                    cout << "\n-------------------------------------------------------------\n";
+
+                    cout << "\nNão é possível adicionar uma quantidade negativa.\n";
+
+                    cout << "\n[Pressione enter para tentar novamente]\n";
+
+                    cout << "\n-------------------------------------------------------------\n";
+                    getchar();
+
+                    continue;
+                }
+
+                else{
                     controller.acrescentarInsumos(index, quantidade);
 
                     system("clear");
@@ -786,7 +809,7 @@ void Menu :: menuApagarInsumo(Controller &controller){
 
                         cout << "\n-------------------------------------------------------------\n";
                         
-                        getchar();
+                        controller.pause();
                         continue;
 
                     }
@@ -838,48 +861,20 @@ void Menu :: menuModificar(Controller &controller){
                 getchar();
 
             } else {
-                int selection;
+                cout << "\n--------------------- MODIFICAR INSUMOS --------------------\n\n";
 
-                while(true){
-                    system("clear");
+                controller.modificarInsumo(index);    
 
-                    if(selection == 1){            
-                        controller.modificarInsumo(index);
+                system("clear");
 
-                        cout << "\n-------------------------------------------------------------\n";
+                cout << "\n-------------------------------------------------------------\n";
 
-                        cout << "\nAlterações salvas com sucesso!\n";
-                        cout << "\n[Pressione enter para prosseguir]\n";
+                cout << "\nAlterações salvas com sucesso!\n";
+                cout << "\n[Pressione enter para prosseguir]\n";
 
-                        cout << "\n-------------------------------------------------------------\n";
-
-                        controller.pause();
-                        break;
-                    
-                    } else if(selection == 2){
-                        cout << "\n-------------------------------------------------------------\n";
-
-                        cout << "\nAlterações descartadas!\n";
-                        cout << "\n[Pressione enter para prosseguir]\n";
-
-                        cout << "\n-------------------------------------------------------------\n";
-
-                        controller.pause();
-                        break;
-
-                    } else {
-                        cout << "\n-------------------------------------------------------------\n";
-
-                        cout << "\nOpção inválida!" << endl;
-                        cout << "\n[Pressione enter para tentar novamente]\n";
-
-                        cout << "\n-------------------------------------------------------------\n";
-                        
-                        getchar();
-                        continue;
-
-                    }
-                }
+                cout << "\n-------------------------------------------------------------\n";
+                getchar();
+                
             }
         }
     }
@@ -890,10 +885,8 @@ void Menu :: menuEnviarInsumo(Controller &controller,int estado){
     bool flag = 0;
     string selection;
     int index;
-
-    getchar();
     
-    while(1){
+    while(true){
 
         system("clear");
 
@@ -949,14 +942,28 @@ void Menu :: menuEnviarInsumo(Controller &controller,int estado){
                     continue;
                 
                 } else if(quantidade > controller.getLocais()[0].getInsumos()[index]->getEstoque() || quantidade < 1){ 
-                    cout << "\nQuantidade inválida!\n";
+                    system("clear");
 
-                    cout << "\n[Pressione enter para tentar novamente]\n\n";
+                    cout << "\n-------------------------------------------------------------\n";
+                    
+                    cout << "\nQuantidade inválida!\n";
+                    cout << "\n[Pressione enter para tentar novamente]\n";
+
+                    cout << "\n-------------------------------------------------------------\n";
                     getchar();
 
                 } else {
+                    system("clear");
+
                     controller.distribuiInsumos(index, estado, quantidade);
 
+                    cout << "\n-------------------------------------------------------------\n";
+
+                    cout << "\nInsumo enviado com sucesso!\n";
+                    cout << "\n[Pressione enter para prosseguir]\n";
+
+                    cout << "\n-------------------------------------------------------------\n";
+                    getchar();
                 }
             }
         }
@@ -1004,7 +1011,6 @@ void Menu :: menuEnviarParaEstado(Controller &controller){
                 cout << "\n[Pressione enter para tentar novamente]\n";
 
                 cout << "\n-------------------------------------------------------------\n";
-
                 getchar();
 
             }else{

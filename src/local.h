@@ -19,6 +19,8 @@ class Local {
         void setInsumo(Insumo *);
 
         void apagarInsumo(int);
+        void apagarTodosInsumos();
+        
         void recadastraInsumo(int);
         void adicionarEstoque(int);
 

@@ -129,7 +129,7 @@ void Controller :: distribuiInsumos(int iInsumo, int iLocal, int unidades){
 void Controller :: consultaInsumosEstoque(int iLocal){
 
     if(this->locais[iLocal].getInsumos().size() == 0){
-        cout << "\nNão há nada cadastrado no sistema!\n";
+        cout << "Não há nada cadastrado no sistema!\n";
     }
 
     // Percorre insumos existentes no local
@@ -158,7 +158,7 @@ void Controller :: consultaTipoInsumosEstoque(int iLocal, int tipo){
     }
 
     if(contador == 0){
-        cout << "\nNão há nada cadastrado no sistema!\n";
+        cout << "Não há nada cadastrado no sistema!\n";
     }
 
     cout << "\n[Pressione enter para voltar]\n";
@@ -168,7 +168,7 @@ void Controller :: consultaTipoInsumosEstoque(int iLocal, int tipo){
 void Controller :: consultaInsumosDescricao(int iLocal){
     
     if(this->locais[iLocal].getInsumos().size() == 0){
-        cout << "\nNão há nada cadastrado no sistema!\n";
+        cout << "Não há nada cadastrado no sistema!\n\n";
     }
 
     // Percorre insumos existentes no local
@@ -197,8 +197,9 @@ void Controller :: apagarInsumo(int iInsumo){
 }
 
 void Controller :: apagarDados(){
+
     for(int i = 0; i < this->locais.size(); i++){
-        this->locais[i].getInsumos().clear();
+        this->locais[i].apagarTodosInsumos();
     }
 }
 

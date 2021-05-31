@@ -81,11 +81,12 @@ void Insumo :: cadastraAtributos(){
 
     while(true){
         cout << "Valor unitário: ";
+
         try{
             cin >> this->valor;
             break;
-        }
-        catch(ios_base::failure &fail){
+
+        }catch(ios_base::failure &fail){
             cout << "Valor inválido, tente novamente!" << endl;
             cin.clear();
             string tmp;

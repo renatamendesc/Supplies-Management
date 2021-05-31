@@ -20,12 +20,20 @@ vector <Insumo *> Local :: getInsumos(){
 
 void Local :: recadastraInsumo(int iInsumo){
 
+    //getchar();
+
     this->insumos[iInsumo]->cadastraAtributos();
 }
 
 void Local :: apagarInsumo(int iInsumo){
 
     this->insumos.erase(this->insumos.begin() + iInsumo);
+
+}
+
+void Local :: apagarTodosInsumos(){
+
+    this->insumos.clear();
 
 }
 
