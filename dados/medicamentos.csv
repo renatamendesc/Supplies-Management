@@ -1,2 +1,3 @@
 estado,tipo,nome,fabricante,dataDeValidade,descricao,valor,estoque,modoAdministracao,tipoDisponibilizado,contraIndicacao,efeitosColaterais
-BR,Medicamento,Dipirona,Dipirona LTDA,23/10/2023,Medicamento para dor de cabeca e febre,22.5,0,Oral,Comprimido,Alergicos,Nenhum
+BR,Medicamento,Dipirona,Dipirona LTDA,23/10/2023,Medicamento para dor de cabeca e febre,22.5,300,Oral,Comprimido,Alergicos,Nenhum
+BR,Medicamento,Nasonex,Schering-Plough,11/11/2022,Remedio para coriza,22,1537,Nasal,Spray,Gravidas,Nenhum

@@ -20,8 +20,6 @@ vector <Insumo *> Local :: getInsumos(){
 
 void Local :: recadastraInsumo(int iInsumo){
 
-    //getchar();
-
     this->insumos[iInsumo]->cadastraAtributos();
 }
 
@@ -37,8 +35,8 @@ void Local :: apagarTodosInsumos(){
 
 }
 
-void Local :: adicionarEstoque(int unidades){
+void Local :: alterarEstoque(int iInsumo, int unidades){
 
-    this->insumos[this->insumos.size()-1]->setEstoque(unidades);
+    this->insumos[iInsumo]->setEstoque(unidades);
 
 }

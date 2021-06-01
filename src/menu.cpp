@@ -228,7 +228,7 @@ void Menu :: menuConsultaEstado(Controller &controller){
 
                 cout << "\n-------------------------------------------------------------\n";
 
-                cout << "\nNão foi identificado nenhum estado com nome \"" << selection << "\".\n";
+                cout << "\nNão foi identificado nenhum estado com a sigla \"" << selection << "\".\n";
 
                 cout << "\n[Pressione enter para tentar novamente]\n";
 
@@ -1006,7 +1006,7 @@ void Menu :: menuEnviarParaEstado(Controller &controller){
 
                 cout << "\n-------------------------------------------------------------\n";
 
-                cout << "\nNão foi identificado nenhum estado com nome \"" << selection << "\".\n";
+                cout << "\nNão foi identificado nenhum estado com a sigla \"" << selection << "\".\n";
 
                 cout << "\n[Pressione enter para tentar novamente]\n";
 

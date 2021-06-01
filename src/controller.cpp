@@ -109,20 +109,24 @@ void Controller :: distribuiInsumos(int iInsumo, int iLocal, int unidades){
         }
     }
 
+    int estoqueEstado = 0;
+    int estoqueMS = this->locais[0].getInsumos()[iInsumo]->getEstoque();
+
     if(!flag){ // Caso o insumo não exista no estado
         this->locais[iLocal].setInsumo(this->locais[0].getInsumos()[iInsumo]);
-        this->locais[iLocal].adicionarEstoque(unidades);
+        iInsumoEstado = this->locais[iLocal].getInsumos().size()-1;
 
     } else { // Caso já exista o insumo no estado
-        int estoqueAtual = this->locais[iLocal].getInsumos()[iInsumoEstado]->getEstoque();
-        this->locais[iLocal].adicionarEstoque(estoqueAtual + unidades);
-
+        estoqueEstado = this->locais[iLocal].getInsumos()[iInsumoEstado]->getEstoque();
+    
     }
 
-    // A quantidade enviada é debitada do estoque do Ministério da Saúde
-    int estoqueAtual = this->locais[0].getInsumos()[iInsumo]->getEstoque();
+    this->locais[iLocal].alterarEstoque(iInsumoEstado, estoqueEstado + unidades);
 
-    this->locais[0].getInsumos()[iInsumo]->setEstoque(estoqueAtual - unidades);
+    // A quantidade enviada é debitada do estoque do Ministério da Saúde
+    cout << estoqueMS << " - " << unidades << " = " << estoqueMS - unidades << endl;
+    this->locais[0].alterarEstoque(iInsumoEstado, estoqueMS - unidades);
+    getchar();
 
 }
 

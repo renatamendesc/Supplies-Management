@@ -22,7 +22,8 @@ class Local {
         void apagarTodosInsumos();
         
         void recadastraInsumo(int);
-        void adicionarEstoque(int);
+
+        void alterarEstoque(int, int);
 
 };
 
