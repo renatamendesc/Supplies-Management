@@ -91,7 +91,6 @@ void Controller :: cadastraInsumosMinisterio(int tipo){
             
             this->pause();
             continue;
-
         }
     } 
 }
@@ -99,6 +98,8 @@ void Controller :: cadastraInsumosMinisterio(int tipo){
 void Controller :: distribuiInsumos(int iInsumo, int iLocal, int unidades){
     bool flag = false;
     int iInsumoEstado;
+
+    this->locais[0].getInsumos()[iInsumo]->setEstoque(this->locais[0].getInsumos()[iInsumo]->getEstoque() - unidades);
 
     // Verificação se o insumo em questão já existe no estoque do estado
     for(int i = 0; i < this->locais[iLocal].getInsumos().size(); i++){
@@ -109,24 +110,12 @@ void Controller :: distribuiInsumos(int iInsumo, int iLocal, int unidades){
         }
     }
 
-    int estoqueEstado = 0;
-    int estoqueMS = this->locais[0].getInsumos()[iInsumo]->getEstoque();
+    if(flag){
+        this->locais[iLocal].getInsumos()[iInsumoEstado]->setEstoque(this->locais[iLocal].getInsumos()[iInsumoEstado]->getEstoque() + unidades);
 
-    if(!flag){ // Caso o insumo não exista no estado
-        this->locais[iLocal].setInsumo(this->locais[0].getInsumos()[iInsumo]);
-        iInsumoEstado = this->locais[iLocal].getInsumos().size()-1;
-
-    } else { // Caso já exista o insumo no estado
-        estoqueEstado = this->locais[iLocal].getInsumos()[iInsumoEstado]->getEstoque();
-    
+    }else{
+        this->locais[iLocal].setInsumoEstado(this->locais[0].getInsumos()[iInsumo], unidades);
     }
-
-    this->locais[iLocal].alterarEstoque(iInsumoEstado, estoqueEstado + unidades);
-
-    // A quantidade enviada é debitada do estoque do Ministério da Saúde
-    cout << estoqueMS << " - " << unidades << " = " << estoqueMS - unidades << endl;
-    this->locais[0].alterarEstoque(iInsumoEstado, estoqueMS - unidades);
-    getchar();
 
 }
 

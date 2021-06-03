@@ -80,16 +80,22 @@ void Insumo :: cadastraAtributos(){
     getline(cin, this->descricao);
 
     while(true){
-        cout << "Valor unitário: ";
+        cout << "Valor unitário (R$): ";
 
         try{
             cin >> this->valor;
             break;
 
         }catch(ios_base::failure &fail){
-            cout << "Valor inválido, tente novamente!" << endl;
+            cout << "\n--------------------------------------------------------------\n";
+
+            cout << "\n             Valor inválido, tente novamente!\n";
+
+            cout << "\n--------------------------------------------------------------\n";
+
             cin.clear();
             string tmp;
+
             getline(cin, tmp);
             getchar();
             continue;
@@ -103,7 +109,7 @@ void Insumo :: exibeInformacoes(){
     cout << "Fabricante: " << this->fabricante << endl;
     cout << "Data de validade: " << this->dataDeValidade << endl;
     cout << "Descrição: " << this->descricao << endl;
-    cout << "Valor unitário: " << this->valor << endl;
+    cout << "Valor unitário (R$): " << this->valor << endl;
     cout << "Quantidade no estoque: " << this->estoque << endl;
     
 }
@@ -115,16 +121,22 @@ void Insumo :: salvarDados(string estado){
         ofstream vacina;
         vacina.open("dados/vacinas.csv", ios_base::app);
 
-        vacina << endl << estado << ",";
-        vacina << "Vacina,";
-        vacina << this->nome << ",";
-        vacina << this->fabricante << ",";
-        vacina << this->dataDeValidade << ",";
-        vacina << this->descricao << ",";
-        vacina << this->valor << ",";
-        vacina << this->estoque << ",";
+        if(vacina.is_open()){
+            vacina << endl << estado << ",";
+            vacina << "Vacina,";
+            vacina << this->nome << ",";
+            vacina << this->fabricante << ",";
+            vacina << this->dataDeValidade << ",";
+            vacina << this->descricao << ",";
+            vacina << this->valor << ",";
+            vacina << this->estoque << ",";
 
-        vacina.close();
+            vacina.close();
+        }
+        else{
+            cout << "---Problema ao abrir o arquivo---" <<endl;
+        }
+
     }
 
     if(this->tipo == 2){
@@ -132,16 +144,23 @@ void Insumo :: salvarDados(string estado){
         ofstream medicamento;
         medicamento.open("dados/medicamentos.csv", ios_base::app);
 
-        medicamento << endl << estado << ",";
-        medicamento << "Medicamento,";
-        medicamento << this->nome << ",";
-        medicamento << this->fabricante << ",";
-        medicamento << this->dataDeValidade << ",";
-        medicamento << this->descricao << ",";
-        medicamento << this->valor << ",";
-        medicamento << this->estoque << ",";
+        if(medicamento.is_open()){
 
-        medicamento.close();
+            medicamento << endl << estado << ",";
+            medicamento << "Medicamento,";
+            medicamento << this->nome << ",";
+            medicamento << this->fabricante << ",";
+            medicamento << this->dataDeValidade << ",";
+            medicamento << this->descricao << ",";
+            medicamento << this->valor << ",";
+            medicamento << this->estoque << ",";
+
+            medicamento.close();
+
+        }
+        else{
+            cout << "---Problema ao abrir o arquivo---" <<endl;
+        }
     }
 
     if(this->tipo == 3){
@@ -149,18 +168,22 @@ void Insumo :: salvarDados(string estado){
         ofstream epi;
         epi.open("dados/epi.csv", ios_base::app);
 
-        epi << endl << estado << ",";
-        epi << "EPI,";
-        epi << this->nome << ",";
-        epi << this->fabricante << ",";
-        epi << this->dataDeValidade << ",";
-        epi << this->descricao << ",";
-        epi << this->valor << ",";
-        epi << this->estoque << ",";
+        if(epi.is_open()){
+            epi << endl << estado << ",";
+            epi << "EPI,";
+            epi << this->nome << ",";
+            epi << this->fabricante << ",";
+            epi << this->dataDeValidade << ",";
+            epi << this->descricao << ",";
+            epi << this->valor << ",";
+            epi << this->estoque << ",";
 
-        epi.close();
+            epi.close();
+        }
+        else{
+            cout << "---Problema ao abrir o arquivo---" <<endl;
+        }   
     }
-
 }
 
 void Insumo :: coletaDados(vector <string> dados){

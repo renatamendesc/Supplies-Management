@@ -54,11 +54,15 @@ void EPI::salvarDados(string estado){
 
     Insumo::salvarDados(estado);
 
-    epi << this->material << ",";
-    epi << this->quantidadeDeUsos;
+    if(epi.is_open()){
+        epi << this->material << ",";
+        epi << this->quantidadeDeUsos;
 
-    epi.close();
-
+        epi.close();
+    }
+    else{
+        cout << "---Problema ao abrir o arquivo---" <<endl;
+    }
 }
 
 void EPI :: coletaDados(vector <string> dados){

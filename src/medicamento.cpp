@@ -78,12 +78,18 @@ void Medicamento :: salvarDados(string estado){
 
     Insumo::salvarDados(estado);
 
-    medicamento << this->modoAdministracao << ",";
-    medicamento << this->tipoDisponibilizado << ",";
-    medicamento << this->contraIndicacao << ",";
-    medicamento << this->efeitosColaterais;
+    if(medicamento.is_open()){
+        medicamento << this->modoAdministracao << ",";
+        medicamento << this->tipoDisponibilizado << ",";
+        medicamento << this->contraIndicacao << ",";
+        medicamento << this->efeitosColaterais;
 
-    medicamento.close();
+        medicamento.close();
+    }
+    else{
+        cout << "---Problema ao abrir o arquivo---" <<endl;
+    }
+
 
 }
 

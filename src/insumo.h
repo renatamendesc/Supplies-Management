@@ -13,7 +13,7 @@ class Insumo {
         std::string dataDeValidade;
         std::string descricao;
 
-        int estoque;
+        int estoque = 0;
         int tipo;
         float valor;
         

@@ -23,7 +23,7 @@ void Menu :: menuPrincipal(Controller &controller){
         cout << "[5] Enviar um insumo\n";
         cout << "[0] Sair\n";
         
-        cout << "\n-------------------------------------------------------------\n";
+        cout << "\n--------------------------------------------------------------\n";
 
         cin >> selection;
 

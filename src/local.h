@@ -2,6 +2,9 @@
 #define LOCAL_H
 
 #include "insumo.h"
+#include "vacina.h"
+#include "medicamento.h"
+#include "epi.h"
 #include <iostream>
 #include <vector>
 
@@ -23,7 +26,7 @@ class Local {
         
         void recadastraInsumo(int);
 
-        void alterarEstoque(int, int);
+        void setInsumoEstado(Insumo *, int);
 
 };
 

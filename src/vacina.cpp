@@ -58,8 +58,12 @@ void Vacina :: cadastraAtributos(){
     cout << "Doses necessárias: ";
     getline(cin, this->dosesNecessarias);
 
-    cout << "Intervalo entre doses: ";
-    getline(cin, this->intervaloDoses);
+    if(this->dosesNecessarias == "1"){
+        this->intervaloDoses = "0";
+    }else{
+        cout << "Intervalo de dias entre doses: ";
+        getline(cin, this->intervaloDoses);
+    }
 
     cout << "Eficácia geral: ";
     getline(cin, this->eficaciaGeral);
@@ -88,13 +92,18 @@ void Vacina :: salvarDados(string estado){
 
     Insumo :: salvarDados(estado);
 
-    vacina << this->tecnologia << ",";
-    vacina << this->dosesNecessarias << ",";
-    vacina << this->intervaloDoses << ",";
-    vacina << this->eficaciaGeral << ",";
-    vacina << this->temperaturaArmazenada;
+    if(vacina.is_open()){
+        vacina << this->tecnologia << ",";
+        vacina << this->dosesNecessarias << ",";
+        vacina << this->intervaloDoses << ",";
+        vacina << this->eficaciaGeral << ",";
+        vacina << this->temperaturaArmazenada;
 
-    vacina.close();
+        vacina.close();
+    }
+    else{
+        cout << "---Problema ao abrir o arquivo---" <<endl;
+    }
 }
 
 void Vacina :: coletaDados(vector <string> dados){
