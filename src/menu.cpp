@@ -766,7 +766,7 @@ void Menu :: menuApagarInsumo(Controller &controller){
 
                     cout << "\n-------------------------------------------------------------\n";
 
-                    cout << "\nDeseja mesmo apagar \"" << selection << "\" e todos os dados\nvinculado a esse insumo?\n";
+                    cout << "\nDeseja mesmo apagar \"" << selection << "\" e todos os dados relacionados\na esse insumo?\n";
                     cout << "[1] Sim\n";
                     cout << "[2] Não\n";
 

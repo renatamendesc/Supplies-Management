@@ -1,4 +1,6 @@
 estado,tipo,nome,fabricante,dataDeValidade,descricao,valor,estoque,material,quantidadeDeUsos
 BR,EPI,Mascara,Lupo,12/10/2021,Mascara de proteçao,15,5500,Tecido,Indeterminada
-BR,EPI,Luvas,Luvas & Cia,14/05/2052,Luvas de borracha,10,1200,Borracha,1 vez
+BR,EPI,Luvas,Luvas & Cia,14/05/2052,Luvas de borracha,10,1150,Borracha,1 vez
 BR,EPI,Respirador,Respiradores & Cia,14/11/2121,Utilizado para tratar pacientes de covid-19,990,0,Plastico,Indefinida
+BR,EPI,Face Shield,Face Shield & Cia,30/05/2051,EPI utilizado para barrar o virus,35,900,Plastico,Indefinida
+PB,EPI,Luvas,Luvas & Cia,14/05/2052,Luvas de borracha,10,50,Borracha,1 vez

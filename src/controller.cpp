@@ -185,6 +185,16 @@ void Controller :: modificarInsumo(int iInsumo){
 
 void Controller :: apagarInsumo(int iInsumo){
 
+    // Apaga dos estados que possuem esse insumo
+    for(int i = 1; i < this->locais.size(); i++){
+        for(int j = 0; j < this->locais[i].getInsumos().size(); j++){
+            if(this->locais[0].getInsumos()[iInsumo]->getNome() == this->locais[i].getInsumos()[j]->getNome()){
+                this->locais[i].apagarInsumo(j);
+            }
+        }
+    }
+
+    // Apaga do ministerio da saude
     this->locais[0].apagarInsumo(iInsumo);
 
 }
