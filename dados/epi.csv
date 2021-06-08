@@ -3,4 +3,9 @@ BR,EPI,Mascara,Lupo,12/10/2021,Mascara de proteçao,15,5500,Tecido,Indeterminada
 BR,EPI,Luvas,Luvas & Cia,14/05/2052,Luvas de borracha,10,1150,Borracha,1 vez
 BR,EPI,Respirador,Respiradores & Cia,14/11/2121,Utilizado para tratar pacientes de covid-19,990,0,Plastico,Indefinida
 BR,EPI,Face Shield,Face Shield & Cia,30/05/2051,EPI utilizado para barrar o virus,35,900,Plastico,Indefinida
+BR,EPI,Alcool em gel,Giovanna Baby,30/12/2021,Produto para higienizaçao,10.5,346,Alcool,Indeterminada
+BR,EPI,Maca,Maca's LTDA,14/07/2235,Maca para leitos,280,40,Aluminio,Indeterminada
 PB,EPI,Luvas,Luvas & Cia,14/05/2052,Luvas de borracha,10,50,Borracha,1 vez
+PB,EPI,Maca,Maca's LTDA,14/07/2235,Maca para leitos,280,10,Aluminio,Indeterminada
+PB,EPI,Alcool em gel,Giovanna Baby,30/12/2021,Produto para higienizaçao,10.5,4,Alcool,Indeterminada
+PE,EPI,Alcool em gel,Giovanna Baby,30/12/2021,Produto para higienizaçao,10.5,1,Alcool,Indeterminada

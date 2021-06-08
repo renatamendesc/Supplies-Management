@@ -1,4 +1,5 @@
 #include "menu.h"
+#include <cstdlib>
 
 using namespace std;
 
@@ -13,19 +14,27 @@ void Menu :: menuPrincipal(Controller &controller){
         if(flag){
             break;
         }
-        
-        cout << "\n-------------- SISTEMA PARA CADASTRO DE INSUMOS --------------\n\n";
 
-        cout << "[1] Cadastrar um insumo\n";
-        cout << "[2] Consultar dados\n";
-        cout << "[3] Comprar um insumo\n";
-        cout << "[4] Modificar dados\n";
-        cout << "[5] Enviar um insumo\n";
-        cout << "[0] Sair\n";
-        
-        cout << "\n--------------------------------------------------------------\n";
+        while(true){
+            cout << "\n-------------- SISTEMA PARA CADASTRO DE INSUMOS --------------\n\n";
 
-        cin >> selection;
+            cout << "[1] Cadastrar um insumo\n";
+            cout << "[2] Consultar dados\n";
+            cout << "[3] Comprar um insumo\n";
+            cout << "[4] Modificar dados\n";
+            cout << "[5] Enviar um insumo\n";
+            cout << "[0] Sair\n";
+            
+            cout << "\n--------------------------------------------------------------\n";
+
+            try{
+                cin >> selection;
+                break;
+                
+            }catch(ios_base::failure &fail){
+                this->e.treat(true);
+            }
+        }
 
         getchar();
 
@@ -83,15 +92,23 @@ void Menu :: menuConsulta(Controller &controller){
             break;
         }
         
-        cout << "\n--------------------- CONSULTA DE DADOS ---------------------\n\n";
+        while(true){
 
-        cout << "[1] Consultar dados do Ministério da Saúde\n";
-        cout << "[2] Consultar dados de estados\n";
-        cout << "[0] Voltar\n";
+            cout << "\n--------------------- CONSULTA DE DADOS ---------------------\n\n";
+
+            cout << "[1] Consultar dados do Ministério da Saúde\n";
+            cout << "[2] Consultar dados de estados\n";
+            cout << "[0] Voltar\n";
         
-        cout << "\n-------------------------------------------------------------\n";
+            cout << "\n-------------------------------------------------------------\n";
 
-        cin >> selection;
+            try{
+                cin >> selection;
+                break;
+            }catch(ios_base::failure &fail){
+                this->e.treat(true);
+            }
+        }
 
         getchar();
 
@@ -145,15 +162,23 @@ void Menu :: menuConsultaGeral(Controller &controller, int iLocal){
             break;
         }
         
-        cout << "\n-------------------- CONSULTA DE DADOS (" << local << ") -------------------\n\n";
+        while(true){
+            
+            cout << "\n-------------------- CONSULTA DE DADOS (" << local << ") -------------------\n\n";
 
-        cout << "[1] Consultar estoque\n";
-        cout << "[2] Consultar informações gerais\n";
-        cout << "[0] Voltar\n";
+            cout << "[1] Consultar estoque\n";
+            cout << "[2] Consultar informações gerais\n";
+            cout << "[0] Voltar\n";
         
-        cout << "\n-------------------------------------------------------------\n";
+            cout << "\n-------------------------------------------------------------\n";
 
-        cin >> selection;
+            try{
+                cin >> selection;
+                break;
+            }catch(ios_base::failure &fail){
+                this->e.treat(true);
+            }
+        }
 
         getchar();
 
@@ -204,7 +229,7 @@ void Menu :: menuConsultaEstado(Controller &controller){
         if(flag){
             break;
         }
-
+        
         cout << "\n---------------- CONSULTA DE DADOS DE ESTADOS ----------------\n\n";
 
         cout << "Informe qual estado você deseja consultar (sigla do estado)\n";
@@ -263,15 +288,23 @@ void Menu :: menuConsultaEstoque(Controller &controller, int iLocal){
             break;
         }
         
-        cout << "\n------------------ CONSULTA DE ESTOQUE (" << local << ") -----------------\n\n";
+        while(true){
+            cout << "\n------------------ CONSULTA DE ESTOQUE (" << local << ") -----------------\n\n";
 
-        cout << "[1] Consultar estoque por tipo\n";
-        cout << "[2] Consultar estoque geral\n";
-        cout << "[0] Voltar\n";
-        
-        cout << "\n-------------------------------------------------------------\n";
+            cout << "[1] Consultar estoque por tipo\n";
+            cout << "[2] Consultar estoque geral\n";
+            cout << "[0] Voltar\n";
+            
+            cout << "\n-------------------------------------------------------------\n";
 
-        cin >> selection;
+            try{
+                cin >> selection;
+                break;
+            }
+            catch(ios_base::failure &fail){
+                this->e.treat(true);
+            }
+        }
 
         getchar();
 
@@ -327,17 +360,25 @@ void Menu :: menuConsultaEstoqueTipo(Controller &controller, int iLocal){
         if(flag){
             break;
         }
-
-        cout << "\n------------- CONSULTA DE INSUMOS POR TIPO (" << local << ") --------------\n\n";
         
-        cout << "[1] Consultar estoque de vacinas\n";
-        cout << "[2] Cadastrar estoque de medicamentos\n";
-        cout << "[3] Cadastrar estoque de EPIs\n";
-        cout << "[0] Voltar\n";
+        while(true){
+            cout << "\n------------- CONSULTA DE INSUMOS POR TIPO (" << local << ") --------------\n\n";
         
-        cout << "\n-------------------------------------------------------------\n";
+            cout << "[1] Consultar estoque de vacinas\n";
+            cout << "[2] Cadastrar estoque de medicamentos\n";
+            cout << "[3] Cadastrar estoque de EPIs\n";
+            cout << "[0] Voltar\n";
+            
+            cout << "\n-------------------------------------------------------------\n";
         
-        cin >> selection;
+            try{
+                cin >> selection;
+                break;
+            }catch(ios_base::failure &fail){
+                this->e.treat(true);
+            }
+            
+        }
         getchar();
 
         switch(selection){
@@ -398,16 +439,25 @@ void Menu :: menuCadastro(Controller &controller){
             break;
         }
 
-        cout << "\n-------------------- CADASTRO DE INSUMOS ---------------------\n\n";
-        
-        cout << "[1] Cadastrar uma vacina\n";
-        cout << "[2] Cadastrar um medicamento\n";
-        cout << "[3] Cadastrar um EPI\n";
-        cout << "[0] Voltar\n";
-        
-        cout << "\n-------------------------------------------------------------\n";
-        
-        cin >> selection;
+        while(true){
+            cout << "\n-------------------- CADASTRO DE INSUMOS ---------------------\n\n";
+            
+            cout << "[1] Cadastrar uma vacina\n";
+            cout << "[2] Cadastrar um medicamento\n";
+            cout << "[3] Cadastrar um EPI\n";
+            cout << "[0] Voltar\n";
+            
+            cout << "\n-------------------------------------------------------------\n";
+            
+            try{
+                cin >> selection;
+                break;
+                 
+            }catch(ios_base::failure &fail){
+                this->e.treat(true);
+                
+            }
+        }
 
         getchar();
 
@@ -502,54 +552,61 @@ void Menu :: menuAcrescentar(Controller &controller){
                 getchar();
 
             } else {
-                int quantidade;
-                
-                cout << "\n-------------- ACRESCENTAR INSUMOS AO ESTOQUE ----------------\n\n";
 
-                cout << "Informe a quantidade de insumos que deseja adquirir" << endl;
-
-                cout << "\n[Pressione 0 para voltar]\n";
-
-                cout << "\n-------------------------------------------------------------\n";
-
-                cin >> quantidade;
-
-                getchar();
-
-                if(quantidade == 0){
-                    continue;
-                }
-
-                else if(quantidade < 0){
+                while(true){
                     system("clear");
 
-                    cout << "\n-------------------------------------------------------------\n";
+                    int quantidade;
+                    
+                    cout << "\n-------------- ACRESCENTAR INSUMOS AO ESTOQUE ----------------\n\n";
 
-                    cout << "\nNão é possível adicionar uma quantidade negativa.\n";
+                    cout << "Informe a quantidade de insumos que deseja adquirir" << endl;
 
-                    cout << "\n[Pressione enter para tentar novamente]\n";
-
-                    cout << "\n-------------------------------------------------------------\n";
-                    getchar();
-
-                    continue;
-                }
-
-                else{
-                    controller.acrescentarInsumos(index, quantidade);
-
-                    system("clear");
-
-                    cout << "\n-------------------------------------------------------------\n\n";
-
-                    cout << "Estoque atualizado com sucesso!" << endl;
-
-                    cout << "\n[Pressione enter para prosseguir]\n";
+                    cout << "\n[Pressione 0 para voltar]\n";
 
                     cout << "\n-------------------------------------------------------------\n";
+
+                    cin >> quantidade;
 
                     getchar();
 
+                    if(quantidade == 0){
+                        continue;
+                    }
+
+                    else if(quantidade < 0){
+                        system("clear");
+
+                        cout << "\n-------------------------------------------------------------\n";
+
+                        cout << "\nNão é possível adicionar uma quantidade negativa.\n";
+
+                        cout << "\n[Pressione enter para tentar novamente]\n";
+
+                        cout << "\n-------------------------------------------------------------\n";
+                        getchar();
+
+                        continue;
+                    }
+
+                    else{
+                        controller.acrescentarInsumos(index, quantidade);
+
+                        system("clear");
+
+                        cout << "\n-------------------------------------------------------------\n\n";
+
+                        cout << "Estoque atualizado com sucesso!" << endl;
+
+                        cout << "\n[Pressione enter para prosseguir]\n";
+
+                        cout << "\n-------------------------------------------------------------\n";
+
+                        getchar();
+
+                        break;
+
+                    }
                 }
             }
         }
@@ -567,15 +624,24 @@ void Menu :: menuAlteracoes(Controller &controller){
 
         system("clear");
 
-        cout << "\n--------------------- MODIFICAR INSUMOS --------------------\n\n";
-        
-        cout << "[1] Modificar dados de insumos\n";
-        cout << "[2] Apagar dados de insumos\n";
-        cout << "[0] Voltar\n";
+        while(true){
+            cout << "\n--------------------- MODIFICAR INSUMOS --------------------\n\n";
+            
+            cout << "[1] Modificar dados de insumos\n";
+            cout << "[2] Apagar dados de insumos\n";
+            cout << "[0] Voltar\n";
 
-        cout << "\n------------------------------------------------------------\n";
+            cout << "\n------------------------------------------------------------\n";
 
-        cin >> selection;
+            try{
+                cin >> selection;
+                break;
+                            
+            }catch(ios_base::failure &fail){
+                this->e.treat(true);
+                
+            }
+        }
 
         getchar();
 
@@ -619,16 +685,25 @@ void Menu :: menuApagar(Controller &controller){
         }
 
         system("clear");
-
-        cout << "\n----------------------- APAGAR INSUMOS ---------------------\n\n";
         
-        cout << "[1] Apagar um insumo\n";
-        cout << "[2] Apagar todos os insumos\n";
-        cout << "[0] Voltar\n";
+        while(true){
+            cout << "\n----------------------- APAGAR INSUMOS ---------------------\n\n";
+            
+            cout << "[1] Apagar um insumo\n";
+            cout << "[2] Apagar todos os insumos\n";
+            cout << "[0] Voltar\n";
 
-        cout << "\n------------------------------------------------------------\n";
+            cout << "\n------------------------------------------------------------\n";
 
-        cin >> selection;
+            try{
+                cin >> selection;
+                break;
+
+            }catch(ios_base::failure &fail){
+                this->e.treat(true);
+                
+            }
+        }
 
         getchar();
 
@@ -649,17 +724,25 @@ void Menu :: menuApagar(Controller &controller){
                 while(true){
                     system("clear");
 
-                    cout << "\n-------------------------------------------------------------\n";
+                    while(true){
 
-                    cout << "\nDeseja mesmo apagar todos os insumos?\n";
-                    cout << "[1] Sim\n";
-                    cout << "[2] Não\n";
+                        cout << "\n-------------------------------------------------------------\n";
 
-                    cout << "\nATENÇÃO: Ao confirmar esta ação, todos os dados cadastrados\nno sistema serão deletados!\n";
+                        cout << "\nDeseja mesmo apagar todos os insumos?\n";
+                        cout << "[1] Sim\n";
+                        cout << "[2] Não\n";
 
-                    cout << "\n-------------------------------------------------------------\n";
+                        cout << "\nATENÇÃO: Ao confirmar esta ação, todos os dados cadastrados\nno sistema serão deletados!\n";
 
-                    cin >> selection;
+                        cout << "\n-------------------------------------------------------------\n";
+
+                        try{
+                            cin >> selection;
+                            break;
+                        }catch(ios_base::failure &fail){
+                            this->e.treat(true);
+                        }
+                    }
 
                     system("clear");
 
@@ -762,18 +845,27 @@ void Menu :: menuApagarInsumo(Controller &controller){
             } else {
 
                 while(true){
+                    int selection; 
                     system("clear");
 
-                    cout << "\n-------------------------------------------------------------\n";
+                    while(true){
+                        cout << "\n-------------------------------------------------------------\n";
 
-                    cout << "\nDeseja mesmo apagar \"" << selection << "\" e todos os dados relacionados\na esse insumo?\n";
-                    cout << "[1] Sim\n";
-                    cout << "[2] Não\n";
+                        cout << "\nDeseja mesmo apagar \"" << selection << "\" e todos os dados relacionados\na esse insumo?\n";
+                        cout << "[1] Sim\n";
+                        cout << "[2] Não\n";
 
-                    cout << "\n-------------------------------------------------------------\n";
+                        cout << "\n-------------------------------------------------------------\n";
 
-                    int selection; 
-                    cin >> selection;
+                        try{
+                            cin >> selection;
+                            break;
+
+                        }catch(ios_base::failure &fail){
+                            this->e.treat(true);
+                        
+                        }
+                    }
 
                     system("clear");
 
@@ -923,47 +1015,65 @@ void Menu :: menuEnviarInsumo(Controller &controller,int estado){
                 getchar();
 
             } else {
+
+                while(true){
                 
-                int quantidade;
-                
-                cout << "\n---------------- ENVIAR INSUMOS AOS ESTADOS ------------------\n\n";
-
-                cout << "Informe a quantidade de insumos que deseja enviar" << endl;
-
-                cout << "\n[Pressione 0 para voltar]\n";
-
-                cout << "\n-------------------------------------------------------------\n";
-
-                cin >> quantidade;
-
-                getchar();
-
-                if(quantidade == 0){
-                    continue;
-                
-                } else if(quantidade > controller.getLocais()[0].getInsumos()[index]->getEstoque() || quantidade < 1){ 
-                    system("clear");
-
-                    cout << "\n-------------------------------------------------------------\n";
+                    int quantidade;
                     
-                    cout << "\nQuantidade inválida!\n";
-                    cout << "\n[Pressione enter para tentar novamente]\n";
+                    while(true){
+                        system("clear");
+                        
+                        cout << "\n---------------- ENVIAR INSUMOS AOS ESTADOS ------------------\n\n";
 
-                    cout << "\n-------------------------------------------------------------\n";
+                        cout << "Informe a quantidade de insumos que deseja enviar" << endl;
+
+                        cout << "\n[Pressione 0 para voltar]\n";
+
+                        cout << "\n-------------------------------------------------------------\n";
+
+                        try{
+                            cin >> quantidade;
+                            break;
+                            
+                        }catch(ios_base::failure &fail){
+                            this->e.treat(true);
+                            
+                        }
+                    }
+
                     getchar();
 
-                } else {
-                    system("clear");
+                    if(quantidade == 0){
+                        continue;
+                    
+                    } else if(quantidade > controller.getLocais()[0].getInsumos()[index]->getEstoque() || quantidade < 1){ 
+                        system("clear");
 
-                    controller.distribuiInsumos(index, estado, quantidade);
+                        cout << "\n-------------------------------------------------------------\n";
+                        
+                        cout << "\nQuantidade inválida!\n";
+                        cout << "\n[Pressione enter para tentar novamente]\n";
 
-                    cout << "\n-------------------------------------------------------------\n";
+                        cout << "\n-------------------------------------------------------------\n";
+                        getchar();
 
-                    cout << "\nInsumo enviado com sucesso!\n";
-                    cout << "\n[Pressione enter para prosseguir]\n";
+                        continue;
 
-                    cout << "\n-------------------------------------------------------------\n";
-                    getchar();
+                    } else {
+                        system("clear");
+
+                        controller.distribuiInsumos(index, estado, quantidade);
+
+                        cout << "\n-------------------------------------------------------------\n";
+
+                        cout << "\nInsumo enviado com sucesso!\n";
+                        cout << "\n[Pressione enter para prosseguir]\n";
+
+                        cout << "\n-------------------------------------------------------------\n";
+                        getchar();
+
+                        break;
+                    }
                 }
             }
         }
@@ -1003,7 +1113,7 @@ void Menu :: menuEnviarParaEstado(Controller &controller){
 
             if(index == -1){
                 system("clear");
-
+                
                 cout << "\n-------------------------------------------------------------\n";
 
                 cout << "\nNão foi identificado nenhum estado com a sigla \"" << selection << "\".\n";
@@ -1012,6 +1122,7 @@ void Menu :: menuEnviarParaEstado(Controller &controller){
 
                 cout << "\n-------------------------------------------------------------\n";
                 getchar();
+   
 
             }else{
                 menuEnviarInsumo(controller, index); // Chama menu para selecionar tipo de insumo a ser enviado

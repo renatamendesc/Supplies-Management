@@ -2,6 +2,8 @@ estado,tipo,nome,fabricante,dataDeValidade,descricao,valor,estoque,tecnologia,do
 BR,Vacina,CoronaVac,SinoVac,22/04/2022,Vacina para Covid-19,950,10055,Virus atenuado,2,21,72%,10 graus
 BR,Vacina,Pfizer,Pfizer/BioNTech,11/08/2022,Vacina para covid-19,1500,2400,RNA mensageiro,2,90,98%,-40 graus
 BR,Vacina,Astrazeneca,Oxford/Astrazeneca,30/04/2022,Vacina contra covid-19,1100,15395,Vetor viral,2,90,82%,-15 graus
+BR,Vacina,Vacina Johnson,Johnson & Johnson,22/05/2022,Vacina para covid-19,889.9,445,Vetor viral,1,0,66%,-10
+MG,Vacina,Vacina Johnson,Johnson & Johnson,22/05/2022,Vacina para covid-19,889.9,5,Vetor viral,1,0,66%,-10
 PB,Vacina,CoronaVac,SinoVac,22/04/2022,Vacina para Covid-19,950,45,Virus atenuado,2,21,72%,10 graus
 RJ,Vacina,Astrazeneca,Oxford/Astrazeneca,30/04/2022,Vacina contra covid-19,1100,5005,Vetor viral,2,90,82%,-15 graus
 SP,Vacina,Pfizer,Pfizer/BioNTech,11/08/2022,Vacina para covid-19,1500,4600,RNA mensageiro,2,90,98%,-40 graus

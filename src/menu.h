@@ -1,12 +1,17 @@
 #ifndef MENU_H
 #define MENU_H
 
+#include "inputInvalidoException.h"
 #include "controller.h"
 #include <iostream>
 
 class Menu {
 
+    private:
+        InputInvalidoException e = InputInvalidoException();
+
     public:
+
         void menuPrincipal(Controller &);
         
         void menuConsulta(Controller &);

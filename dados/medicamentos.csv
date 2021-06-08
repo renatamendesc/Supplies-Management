@@ -2,4 +2,5 @@ estado,tipo,nome,fabricante,dataDeValidade,descricao,valor,estoque,modoAdministr
 BR,Medicamento,Dipirona,Dipirona LTDA,23/10/2023,Medicamento para dor de cabeca e febre,22.5,300,Oral,Comprimido,Alergicos,Nenhum
 BR,Medicamento,Nasonex,Schering-Plough,11/11/2022,Remedio para coriza,22,1500,Nasal,Spray,Gravidas,Nenhum
 BR,Medicamento,Dramine,Dramine LTDA,30/12/2022,Remedio para enjoo,52,0,Oral,Comprimido,Alergicos,Sonolencia
+BR,Medicamento,Paracetamol,Generico,30/04/2023,Remedio para dores,4.8,0,Oral,Comprimido,Gravidas,Sono
 SP,Medicamento,Nasonex,Schering-Plough,11/11/2022,Remedio para coriza,22,37,Nasal,Spray,Gravidas,Nenhum

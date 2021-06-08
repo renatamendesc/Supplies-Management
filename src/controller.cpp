@@ -1,4 +1,5 @@
 #include "controller.h"
+#include <cstdlib>
 
 using namespace std;
 
@@ -39,21 +40,52 @@ void Controller :: cadastraInsumosMinisterio(int tipo){
 
     // Faz a leitura das informações do insumo em questão
     insumo->cadastraAtributos();
+    
+    bool erro = false;
 
-    while(true){
+    for(int i = 0; i < this->locais[0].getInsumos().size(); i++){
+
+        if(insumo->getNome() == this->locais[0].getInsumos()[i]->getNome()){
+
+            erro = true;
+            system("clear");
+
+            cout << "\n-------------------------------------------------------------\n";
+
+            cout << "\nERRO: \"" << insumo->getNome() << "\" já foi previamente cadastrado no\nsistema!\n";
+            cout << "\n[Pressione enter para prosseguir]\n";
+
+            cout << "\n-------------------------------------------------------------\n";
+            getchar();
+            break;
+
+        }
+    }
+
+    while(true && !erro){
         int selection;
 
         system("clear");
 
-        std::cout << "\n-------------------------------------------------------------\n";
+        while(true){
+            
+            cout << "\n-------------------------------------------------------------\n";
 
-        cout << "\nDeseja mesmo salvar o cadastro?" <<endl;
-        cout << "[1] Sim" << endl;
-        cout << "[2] Não" << endl;
+            cout << "\nDeseja mesmo salvar o cadastro?" <<endl;
+            cout << "[1] Sim" << endl;
+            cout << "[2] Não" << endl;
 
-        std::cout << "\n-------------------------------------------------------------\n";
+            cout << "\n-------------------------------------------------------------\n";
+        
+            try{
+                cin >> selection;
+                break;
 
-        cin >> selection;
+            }catch(ios_base::failure &fail){
+                this->e.treat(true);
+
+            }
+        }
 
         system("clear");
 

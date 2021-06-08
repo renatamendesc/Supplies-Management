@@ -1,6 +1,7 @@
 #ifndef INSUMO_H
 #define INSUMO_H
 
+#include "inputInvalidoException.h"
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -16,6 +17,8 @@ class Insumo {
         int estoque = 0;
         int tipo;
         float valor;
+
+        InputInvalidoException e = InputInvalidoException();
         
     public:
         ~Insumo();

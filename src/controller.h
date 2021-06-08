@@ -1,6 +1,7 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
+#include "inputInvalidoException.h"
 #include "insumo.h"
 #include "vacina.h"
 #include "medicamento.h"
@@ -13,6 +14,7 @@ class Controller {
 
     private:
         std::vector <Local> locais;
+        InputInvalidoException e = InputInvalidoException();
 
     public:
         Controller();
