@@ -1,7 +1,7 @@
 /**
 Programa de cadastro de insumos
 Autores: Gabriela Gomes Cavalcanti Alves Monteiro, Guilherme Jácome Cavalcante, Renata Mendes Pereira Campos
-Ultima atualização: 25/05/2021
+Ultima atualização: 08/06/2021
 Breve descrição: Programa que cadastra informações sobre insumos, ligados ao covid 19.
 **/
 
