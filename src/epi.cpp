@@ -3,9 +3,8 @@
 using namespace std;
 
 EPI :: EPI(){
-    this->tipo = 3;
+    this->tipo = 3; // Construtor inicializa EPI como tipo 3
 }
-
 
 void EPI :: setMaterial(string material){
     this->material =  material;
@@ -15,7 +14,6 @@ void EPI :: setQuantidadeDeUsos(string quantidadeUsos){
     this->quantidadeDeUsos = quantidadeUsos;
 }
 
-
 string EPI :: getMaterial(){
     return this->material;
 }
@@ -24,10 +22,10 @@ string EPI :: getQuantidadeDeUsos(){
     return this->quantidadeDeUsos;
 }
 
-
+// Lê informações de EPIs
 void EPI::cadastraAtributos(){
 
-    Insumo::cadastraAtributos();
+    Insumo::cadastraAtributos(); // Chama método para leitura de todos atributos (independente de tipo)
 
     getchar();
 
@@ -39,15 +37,17 @@ void EPI::cadastraAtributos(){
 
 }
 
+// Exibe informações de EPIs
 void EPI::exibeInformacoes(){
 
-    Insumo::exibeInformacoes();
+    Insumo::exibeInformacoes(); // Chama método para exibição de todos atributos (independente de tipo)
 
     cout << "Material utilizado: " << this->material << endl;
     cout << "Quantidade indicada de usos: " << this->quantidadeDeUsos << endl;
     
 }
 
+// Método para enviar dados dos arquivos
 void EPI::salvarDados(string estado){
     ofstream epi;
     epi.open("dados/epi.csv", ios_base::app);
@@ -65,6 +65,7 @@ void EPI::salvarDados(string estado){
     }
 }
 
+// Método para coletar dados dos arquivos
 void EPI :: coletaDados(vector <string> dados){
 
     Insumo::coletaDados(dados);

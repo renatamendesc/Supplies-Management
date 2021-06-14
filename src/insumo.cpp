@@ -63,7 +63,8 @@ float Insumo :: getValor(){
 }
 
 
-void Insumo :: cadastraAtributos(){
+// Método que cadastra as informações dos insumos em comum a todos os tipos
+void Insumo :: cadastraAtributos(){ 
 
     cout << "Nome: ";
     getline(cin, this->nome);
@@ -80,6 +81,7 @@ void Insumo :: cadastraAtributos(){
     while(true){
         cout << "Valor unitário (R$): ";
 
+        // try/catch usado no tratamento de erros
         try{
             cin >> this->valor;
 
@@ -104,7 +106,8 @@ void Insumo :: cadastraAtributos(){
     }
 }
 
-void Insumo :: exibeInformacoes(){
+//Método que exibe as informaç
+void Insumo :: exibeInformacoes(){ 
 
     cout << "Nome: " << this->nome << endl;
     cout << "Fabricante: " << this->fabricante << endl;

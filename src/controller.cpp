@@ -43,6 +43,7 @@ void Controller :: cadastraInsumosMinisterio(int tipo){
     
     bool erro = false;
 
+    // Verifica se já existe algum insumo de mesmo nome cadastrado
     for(int i = 0; i < this->locais[0].getInsumos().size(); i++){
 
         if(insumo->getNome() == this->locais[0].getInsumos()[i]->getNome()){
@@ -58,10 +59,10 @@ void Controller :: cadastraInsumosMinisterio(int tipo){
             cout << "\n-------------------------------------------------------------\n";
             getchar();
             break;
-
         }
     }
 
+    // Caso o cadastro seja valido
     while(true && !erro){
         int selection;
 
@@ -144,15 +145,14 @@ void Controller :: distribuiInsumos(int iInsumo, int iLocal, int unidades){
 
     if(flag){
         this->locais[iLocal].getInsumos()[iInsumoEstado]->setEstoque(this->locais[iLocal].getInsumos()[iInsumoEstado]->getEstoque() + unidades);
-
     }else{
         this->locais[iLocal].setInsumoEstado(this->locais[0].getInsumos()[iInsumo], unidades);
     }
-
 }
 
 void Controller :: consultaInsumosEstoque(int iLocal){
 
+    // Verifica se há insumos no local em questão
     if(this->locais[iLocal].getInsumos().size() == 0){
         cout << "Não há nada cadastrado no sistema!\n";
     }
@@ -182,6 +182,7 @@ void Controller :: consultaTipoInsumosEstoque(int iLocal, int tipo){
         }
     }
 
+    // Verifica se há insumos no local em questão
     if(contador == 0){
         cout << "Não há nada cadastrado no sistema!\n";
     }
@@ -192,6 +193,7 @@ void Controller :: consultaTipoInsumosEstoque(int iLocal, int tipo){
 
 void Controller :: consultaInsumosDescricao(int iLocal){
     
+    // Verifica se há insumos no local em questão
     if(this->locais[iLocal].getInsumos().size() == 0){
         cout << "Não há nada cadastrado no sistema!\n\n";
     }
@@ -212,7 +214,7 @@ void Controller :: consultaInsumosDescricao(int iLocal){
 
 void Controller :: modificarInsumo(int iInsumo){
 
-    this->locais[0].recadastraInsumo(iInsumo);
+    this->locais[0].recadastraInsumo(iInsumo); // Chama função de recadastro
 }
 
 void Controller :: apagarInsumo(int iInsumo){
@@ -233,25 +235,21 @@ void Controller :: apagarInsumo(int iInsumo){
 
 void Controller :: apagarDados(){
 
+    // Percorre e apaga insumos de todos os estados
     for(int i = 0; i < this->locais.size(); i++){
         this->locais[i].apagarTodosInsumos();
     }
 }
 
-void Controller :: acrescentarInsumos(int iInsumo, int unidades){
-
-    int estoqueAtual = this->locais[0].getInsumos()[iInsumo]->getEstoque();
-    this->locais[0].getInsumos()[iInsumo]->setEstoque(estoqueAtual + unidades);
-
-}
-
-int Controller :: pesquisar(string estado, string insumo, int tipo){ // (1- insumo) (2- estado)
+int Controller :: pesquisar(string estado, string insumo, int tipo){ // (1-insumo) (2-estado)
 
     switch(tipo){
 
+        // Caso a pesquisa seja de um insumo
         case 1: {
             int index = this->pesquisar(estado, "", 2);
             
+            // Percorre insumos para verificar se o insumo em questão existe
             for(int i = 0; i < this->locais[index].getInsumos().size(); i++){
                 if(this->locais[index].getInsumos()[i]->getNome() == insumo){
                     return i;
@@ -261,8 +259,10 @@ int Controller :: pesquisar(string estado, string insumo, int tipo){ // (1- insu
             return -1;
         }
 
+        // Caso a pesquisa seja de um estado
         case 2: {
 
+            // Percorre estados para verificar se o estado em questão existe
             for(int i = 0; i < this->locais.size(); i++){
                 if(this->locais[i].getSigla() == estado){
                     return i;
@@ -274,8 +274,12 @@ int Controller :: pesquisar(string estado, string insumo, int tipo){ // (1- insu
     }
 }
 
-void Controller :: setarDado(int iLocal, Insumo *insumo){
+void Controller :: acrescentarInsumos(int iInsumo, int unidades){
+    int estoqueAtual = this->locais[0].getInsumos()[iInsumo]->getEstoque();
+    this->locais[0].getInsumos()[iInsumo]->setEstoque(estoqueAtual + unidades);
+}
 
+void Controller :: setarDado(int iLocal, Insumo *insumo){
     this->locais[iLocal].setInsumo(insumo);
 }
 

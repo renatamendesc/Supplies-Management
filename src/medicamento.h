@@ -25,10 +25,10 @@ class Medicamento: public Insumo {
         std::string getContraIndicacao();
         std::string getEfeitosColaterais();
 
-        void cadastraAtributos();
-        void exibeInformacoes();
-        void salvarDados(std::string);
-        void coletaDados(std::vector <std::string>);
+        void cadastraAtributos(); // Método para cadastrar as informações dos medicamentos
+        void exibeInformacoes(); // Método para exibir as informações cadastradas dos medicamentos
+        void salvarDados(std::string); // Método que salva os dados dos medicamentos em arquivos
+        void coletaDados(std::vector <std::string>); // Método que coleta os dados dos medicamentos dos arquivos
 
 };
 

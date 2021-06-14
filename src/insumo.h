@@ -39,10 +39,10 @@ class Insumo {
         int getTipo();
         float getValor();
 
-        virtual void cadastraAtributos();
-        virtual void exibeInformacoes();
-        virtual void salvarDados(std::string);
-        virtual void coletaDados(std::vector <std::string>);
+        virtual void cadastraAtributos(); //Cadastra informações em comum a todos os tipos de insumos
+        virtual void exibeInformacoes(); //Exibe informações em comum a todos os tipos
+        virtual void salvarDados(std::string); // Salva os dados dos tipos em arquivos
+        virtual void coletaDados(std::vector <std::string>); // Coleta os dados dos arquivos
     
 };
 

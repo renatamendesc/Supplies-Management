@@ -10,7 +10,8 @@ InputInvalidoException :: InputInvalidoException(){
 }
 
 void InputInvalidoException :: treat(bool erase){
-
+    
+    // Verifica se é necessario apagar a exibição anterior
     if(erase){
 
         system("clear");
@@ -33,11 +34,12 @@ void InputInvalidoException :: treat(bool erase){
 
     }
 
-    cin.clear();
+    cin.clear(); // limpa o cin
     string tmp;
-    getline(cin, tmp);
-    getchar();
+    getline(cin, tmp); // pega o que restou com uma string auxiliar
+    getchar(); // pausa
 
+    // Verifica se é necessario apagar a exibição anterior
     if(erase){
         system("clear");
     }

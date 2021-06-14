@@ -27,10 +27,10 @@ class Vacina: public Insumo {
         std::string getEficaciaGeral();
         std::string getTemperaturaArmazenada();
 
-        void cadastraAtributos();
-        void exibeInformacoes();
-        void salvarDados(std::string);
-        void coletaDados(std::vector <std::string>);
+        void cadastraAtributos(); // Método para cadastrar as informações das vacinas
+        void exibeInformacoes(); // Método para exibir as informações cadastradas das vacinas
+        void salvarDados(std::string); // Método que salva os dados das vacinas em arquivos
+        void coletaDados(std::vector <std::string>); // Método que coleta os dados das vacinas dos arquivos
 
 };
 

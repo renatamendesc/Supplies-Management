@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Medicamento :: Medicamento(){
+Medicamento :: Medicamento(){ // Construtor que atribui a medicamentos o tipo "2" dos insumos
     this->tipo = 2;
 }
 
@@ -41,9 +41,9 @@ string Medicamento :: getEfeitosColaterais(){
 }
 
 
-void Medicamento::cadastraAtributos(){
+void Medicamento::cadastraAtributos(){ // Método que realiza o cadastro dos atributos específicos dos medicamentos
 
-    Insumo::cadastraAtributos();
+    Insumo::cadastraAtributos(); // Recebe o método da classe insumos que já havia cadastrado os atriibutos em comum  
 
     getchar();
 

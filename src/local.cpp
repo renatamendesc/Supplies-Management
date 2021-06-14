@@ -36,12 +36,12 @@ void Local :: setInsumoEstado(Insumo *insumoMS, int unidades){
 
     int tipo = insumoMS->getTipo();
 
-
     // Verifica o tipo do insumo
     if(tipo == 1){
 
         insumoEstado = new Vacina();
 
+        // Objeto criado copia os atributos do objeto que seria enviado ao estado
         insumoEstado->setNome(insumoMS->getNome());
         insumoEstado->setFabricante(insumoMS->getFabricante());
         insumoEstado->setDataDeValidade(insumoMS->getDataDeValidade());
@@ -60,6 +60,7 @@ void Local :: setInsumoEstado(Insumo *insumoMS, int unidades){
 
         insumoEstado = new Medicamento();
 
+        // Objeto criado copia os atributos do objeto que seria enviado ao estado
         insumoEstado->setNome(insumoMS->getNome());
         insumoEstado->setFabricante(insumoMS->getFabricante());
         insumoEstado->setDataDeValidade(insumoMS->getDataDeValidade());
@@ -77,6 +78,7 @@ void Local :: setInsumoEstado(Insumo *insumoMS, int unidades){
 
         insumoEstado = new EPI();
 
+        // Objeto criado copia os atributos do objeto que seria enviado ao estado
         insumoEstado->setNome(insumoMS->getNome());
         insumoEstado->setFabricante(insumoMS->getFabricante());
         insumoEstado->setDataDeValidade(insumoMS->getDataDeValidade());
@@ -90,6 +92,7 @@ void Local :: setInsumoEstado(Insumo *insumoMS, int unidades){
     
     }
 
+    // Objeto criado é enviado para o vector de insumos do estado
     this->insumos.push_back(insumoEstado);
     
 }

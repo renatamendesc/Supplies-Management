@@ -41,23 +41,23 @@ void Menu :: menuPrincipal(Controller &controller){
         switch(selection){
             
             case 1:
-                this->menuCadastro(controller);
+                this->menuCadastro(controller); // Chama menu de cadastro
                 continue;
 
             case 2:
-                this->menuConsulta(controller);
+                this->menuConsulta(controller); // Chama menu de consultas
                 continue;
             
             case 3:
-                this->menuAcrescentar(controller);
+                this->menuAcrescentar(controller); // Chama menu de compras
                 continue;
             
             case 4:
-                this->menuAlteracoes(controller);
+                this->menuAlteracoes(controller); // Chama menu de alterações
                 continue;
             
             case 5:
-                this->menuEnviarParaEstado(controller);
+                this->menuEnviarParaEstado(controller); // Chama menu de envio
                 continue;
 
             case 0:
@@ -115,11 +115,11 @@ void Menu :: menuConsulta(Controller &controller){
         switch(selection){
             
             case 1:
-                this->menuConsultaGeral(controller, 0);
+                this->menuConsultaGeral(controller, 0); // Menu para consultar dados do MS
                 continue;
 
             case 2:
-                this->menuConsultaEstado(controller);
+                this->menuConsultaEstado(controller); // Menu para consultar dados de um estado
                 continue;
 
             case 0:
@@ -185,7 +185,7 @@ void Menu :: menuConsultaGeral(Controller &controller, int iLocal){
         switch(selection){
             
             case 1:
-                this->menuConsultaEstoque(controller, iLocal);
+                this->menuConsultaEstoque(controller, iLocal); // Chama menu de consulta de estoque
                 continue;
 
             case 2:
@@ -193,7 +193,7 @@ void Menu :: menuConsultaGeral(Controller &controller, int iLocal){
 
                 cout << "\n------------ CONSULTA DE INFORMAÇÕES GERAIS (" << local << ")------------\n\n";
 
-                controller.consultaInsumosDescricao(iLocal);
+                controller.consultaInsumosDescricao(iLocal); // Exibe descrição de insumos no local
                 continue;
 
             case 0:
@@ -262,8 +262,7 @@ void Menu :: menuConsultaEstado(Controller &controller){
                 getchar();
 
             }else{
-                this->menuConsultaGeral(controller, index);
-            
+                this->menuConsultaGeral(controller, index); // Exibe o menu de consulta para o estado em questão
             }
         }
     } 
@@ -311,7 +310,7 @@ void Menu :: menuConsultaEstoque(Controller &controller, int iLocal){
         switch(selection){
             
             case 1:
-                this->menuConsultaEstoqueTipo(controller, iLocal);
+                this->menuConsultaEstoqueTipo(controller, iLocal); // Chama menu de consulta por tipo
                 continue;
 
             case 2:
@@ -319,7 +318,7 @@ void Menu :: menuConsultaEstoque(Controller &controller, int iLocal){
 
                 cout << "\n--------------- CONSULTA DE ESTOQUE GERAL (" << local << ") --------------\n\n";
 
-                controller.consultaInsumosEstoque(iLocal);
+                controller.consultaInsumosEstoque(iLocal); // Exibe consulta geral
                 continue;
 
             case 0:
@@ -374,6 +373,7 @@ void Menu :: menuConsultaEstoqueTipo(Controller &controller, int iLocal){
             try{
                 cin >> selection;
                 break;
+
             }catch(ios_base::failure &fail){
                 this->e.treat(true);
             }
@@ -383,6 +383,7 @@ void Menu :: menuConsultaEstoqueTipo(Controller &controller, int iLocal){
 
         switch(selection){
             
+            // Exibe estoque de vacinas
             case 1:
                 system("clear");
 
@@ -391,6 +392,7 @@ void Menu :: menuConsultaEstoqueTipo(Controller &controller, int iLocal){
                 controller.consultaTipoInsumosEstoque(iLocal, 1);
                 continue;
 
+            // Exibe estoque de medicamentos
             case 2:
                 system("clear");
 
@@ -399,6 +401,7 @@ void Menu :: menuConsultaEstoqueTipo(Controller &controller, int iLocal){
                 controller.consultaTipoInsumosEstoque(iLocal, 2);
                 continue;
 
+            // Exibe estoque de EPIs
             case 3:
                 system("clear");
 
@@ -468,7 +471,7 @@ void Menu :: menuCadastro(Controller &controller){
 
                 cout << "\n------------------- CADASTRAR UMA VACINA --------------------\n\n";
                 
-                controller.cadastraInsumosMinisterio(1);
+                controller.cadastraInsumosMinisterio(1); // Realiza cadastro de vacina
                 continue;
 
             case 2:
@@ -476,7 +479,7 @@ void Menu :: menuCadastro(Controller &controller){
 
                 cout << "\n----------------- CADASTRAR UM MEDICAMENTO ------------------\n\n";
 
-                controller.cadastraInsumosMinisterio(2);
+                controller.cadastraInsumosMinisterio(2); // Realiza cadastro de medicamento
                 continue;
 
             case 3:
@@ -484,7 +487,7 @@ void Menu :: menuCadastro(Controller &controller){
 
                 cout << "\n--------------------- CADASTRAR UM EPI ----------------------\n\n";
 
-                controller.cadastraInsumosMinisterio(3);
+                controller.cadastraInsumosMinisterio(3); // Realizada cadastro de EPI
                 continue;
 
             case 0:
@@ -536,7 +539,7 @@ void Menu :: menuAcrescentar(Controller &controller){
 
         }else{
 
-            int index = controller.pesquisar("BR", selection, 1);
+            int index = controller.pesquisar("BR", selection, 1); // Procura se o insumo existe no MS
 
             system("clear");
 
@@ -566,7 +569,7 @@ void Menu :: menuAcrescentar(Controller &controller){
 
                     cout << "\n-------------------------------------------------------------\n";
 
-                    cin >> quantidade;
+                    cin >> quantidade; // Informa a quantidade desejada
 
                     getchar();
 
@@ -590,7 +593,7 @@ void Menu :: menuAcrescentar(Controller &controller){
                     }
 
                     else{
-                        controller.acrescentarInsumos(index, quantidade);
+                        controller.acrescentarInsumos(index, quantidade); // Adiciona caso a quantidade seja válida
 
                         system("clear");
 
@@ -618,6 +621,7 @@ void Menu :: menuAlteracoes(Controller &controller){
     bool flag = false;
 
     while(true){
+
         if(flag){
             break;
         }
@@ -652,11 +656,11 @@ void Menu :: menuAlteracoes(Controller &controller){
                 continue;
 
             case 1:
-                this->menuModificar(controller);
+                this->menuModificar(controller); // Chama método de modificar cadastro
                 continue;
 
             case 2:
-                this->menuApagar(controller); // Chama função de modificar cadastro
+                this->menuApagar(controller); // Chama menu de apagar dados
                 continue;
 
             default:
@@ -714,7 +718,7 @@ void Menu :: menuApagar(Controller &controller){
                 continue;
 
             case 1:
-                this->menuApagarInsumo(controller);
+                this->menuApagarInsumo(controller); // Exibe menu de apagar um insumo específico
                 continue;
 
             case 2:
@@ -747,7 +751,7 @@ void Menu :: menuApagar(Controller &controller){
                     system("clear");
 
                     if(selection == 1){            
-                        controller.apagarDados();
+                        controller.apagarDados(); // Apaga todos os dados existentes no sistema
 
                         cout << "\n-------------------------------------------------------------\n";
 
@@ -828,7 +832,7 @@ void Menu :: menuApagarInsumo(Controller &controller){
             
         }else{
             
-            index = controller.pesquisar("BR", selection, 1);
+            index = controller.pesquisar("BR", selection, 1); // Procura se o insumo em questão existe no sistema
 
             system("clear");
 
@@ -845,7 +849,7 @@ void Menu :: menuApagarInsumo(Controller &controller){
             } else {
 
                 while(true){
-                    int selection; 
+                    int choice;
                     system("clear");
 
                     while(true){
@@ -858,7 +862,7 @@ void Menu :: menuApagarInsumo(Controller &controller){
                         cout << "\n-------------------------------------------------------------\n";
 
                         try{
-                            cin >> selection;
+                            cin >> choice;
                             break;
 
                         }catch(ios_base::failure &fail){
@@ -869,7 +873,7 @@ void Menu :: menuApagarInsumo(Controller &controller){
 
                     system("clear");
 
-                    if(selection == 1){            
+                    if(choice == 1){            
                         controller.apagarInsumo(index);
 
                         cout << "\n-------------------------------------------------------------\n";
@@ -882,7 +886,7 @@ void Menu :: menuApagarInsumo(Controller &controller){
                         controller.pause();
                         break;
                     
-                    } else if(selection == 2){
+                    } else if(choice == 2){
                         cout << "\n-------------------------------------------------------------\n";
 
                         cout << "\nAlterações descartadas!\n";
@@ -903,7 +907,6 @@ void Menu :: menuApagarInsumo(Controller &controller){
                         
                         controller.pause();
                         continue;
-
                     }
                 }
             }
@@ -955,7 +958,7 @@ void Menu :: menuModificar(Controller &controller){
             } else {
                 cout << "\n--------------------- MODIFICAR INSUMOS --------------------\n\n";
 
-                controller.modificarInsumo(index);    
+                controller.modificarInsumo(index); // Chama metodo de modificar um insumo
 
                 system("clear");
 
@@ -1062,7 +1065,7 @@ void Menu :: menuEnviarInsumo(Controller &controller,int estado){
                     } else {
                         system("clear");
 
-                        controller.distribuiInsumos(index, estado, quantidade);
+                        controller.distribuiInsumos(index, estado, quantidade); // Envia insumo para determinada
 
                         cout << "\n-------------------------------------------------------------\n";
 
@@ -1108,8 +1111,7 @@ void Menu :: menuEnviarParaEstado(Controller &controller){
 
         }else{
 
-            // Analise se o estado selecionado existe: 
-            int index = controller.pesquisar(selection, "", 2);
+            int index = controller.pesquisar(selection, "", 2); // Analise se o estado selecionado existe 
 
             if(index == -1){
                 system("clear");

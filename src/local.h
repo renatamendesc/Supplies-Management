@@ -12,7 +12,7 @@ class Local {
 
     private:
         std::string sigla;
-        std::vector <Insumo *> insumos;
+        std::vector <Insumo *> insumos; // Vector de insumos de determinado local
     
     public:
         std::string getSigla();
@@ -21,12 +21,12 @@ class Local {
         void setSigla(std::string);
         void setInsumo(Insumo *);
 
-        void apagarInsumo(int);
-        void apagarTodosInsumos();
+        void apagarInsumo(int); // Método para apagar determinado insumo
+        void apagarTodosInsumos(); // Método para apagar todos os insumos de determinado local
         
         void recadastraInsumo(int);
 
-        void setInsumoEstado(Insumo *, int);
+        void setInsumoEstado(Insumo *, int); // Adiciona um insumo para um estado
 
 };
 
