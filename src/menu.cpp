@@ -364,8 +364,8 @@ void Menu :: menuConsultaEstoqueTipo(Controller &controller, int iLocal){
             cout << "\n------------- CONSULTA DE INSUMOS POR TIPO (" << local << ") --------------\n\n";
         
             cout << "[1] Consultar estoque de vacinas\n";
-            cout << "[2] Cadastrar estoque de medicamentos\n";
-            cout << "[3] Cadastrar estoque de EPIs\n";
+            cout << "[2] Consultar estoque de medicamentos\n";
+            cout << "[3] Consultar estoque de EPIs\n";
             cout << "[0] Voltar\n";
             
             cout << "\n-------------------------------------------------------------\n";
