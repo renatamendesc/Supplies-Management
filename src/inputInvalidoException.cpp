@@ -34,10 +34,10 @@ void InputInvalidoException :: treat(bool erase){
 
     }
 
-    cin.clear(); // limpa o cin
+    cin.clear(); // Limpa o cin
     string tmp;
-    getline(cin, tmp); // pega o que restou com uma string auxiliar
-    getchar(); // pausa
+    getline(cin, tmp); // Pega o que restou com uma string auxiliar
+    getchar(); 
 
     // Verifica se é necessario apagar a exibição anterior
     if(erase){

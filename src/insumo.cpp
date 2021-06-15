@@ -81,7 +81,7 @@ void Insumo :: cadastraAtributos(){
     while(true){
         cout << "Valor unitário (R$): ";
 
-        // try/catch usado no tratamento de erros
+        // Try/Catch usado no tratamento de erros
         try{
             cin >> this->valor;
 
@@ -106,7 +106,7 @@ void Insumo :: cadastraAtributos(){
     }
 }
 
-//Método que exibe as informaç
+// Método que exibe as informações
 void Insumo :: exibeInformacoes(){ 
 
     cout << "Nome: " << this->nome << endl;

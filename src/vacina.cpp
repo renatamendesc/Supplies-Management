@@ -2,7 +2,7 @@
 
 using namespace std;
 
-//seta o tipo do insumo vacina como 1
+// Seta o tipo do insumo vacina como 1
 Vacina :: Vacina(){
     this->tipo = 1; 
 }
@@ -47,10 +47,10 @@ string Vacina :: getTemperaturaArmazenada(){
     return this->temperaturaArmazenada;
 }
 
-//Método para cadastro de vacinas
+// Método para cadastro de vacinas
 void Vacina :: cadastraAtributos(){ 
 
-    Insumo::cadastraAtributos(); // chama o método que cadastra as informações das vacinas existentes em comum com medicamentos e EPIs
+    Insumo::cadastraAtributos(); // Chama o método que cadastra as informações das vacinas existentes em comum com medicamentos e EPIs
  
     getchar();
 
@@ -77,7 +77,7 @@ void Vacina :: cadastraAtributos(){
 
 void Vacina :: exibeInformacoes(){ 
 
-    Insumo::exibeInformacoes(); // chama o método que exibe as informações das vacinas existentes em comum com vacinas e EPIs
+    Insumo::exibeInformacoes(); // Chama o método que exibe as informações das vacinas existentes em comum com vacinas e EPIs
 
     cout << "Tecnologia utilizada: " << this->tecnologia << endl;
     cout << "Doses necessárias: " << this->dosesNecessarias << endl;

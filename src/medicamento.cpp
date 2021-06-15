@@ -6,7 +6,6 @@ Medicamento :: Medicamento(){ // Construtor que atribui a medicamentos o tipo "2
     this->tipo = 2;
 }
 
-
 void Medicamento :: setModoAdministracao(string modoAdministracao){
     this->modoAdministracao = modoAdministracao;
 }
@@ -23,7 +22,6 @@ void Medicamento :: setEfeitosColaterais(string efeitosColaterais){
     this->efeitosColaterais = efeitosColaterais;
 }
 
-
 string Medicamento :: getModoAdministracao(){
     return this->modoAdministracao;
 }
@@ -39,7 +37,6 @@ string Medicamento :: getContraIndicacao(){
 string Medicamento :: getEfeitosColaterais(){
     return this->efeitosColaterais;
 }
-
 
 void Medicamento::cadastraAtributos(){ // Método que realiza o cadastro dos atributos específicos dos medicamentos
 
