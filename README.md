@@ -1,24 +1,24 @@
-# Sistema de Cadastro de Insumos
-Sistema desenvolvido para cadastro e gerenciamento de insumos pertencentes ao Ministério da Saúde, frente ao combate da pandemia do novo Covid-19. O programa foi feito em grupo, como projeto para a disciplina de Linguagem de Programação I e Laboratório de Linguagem de Programação I, na UFPB (Universidade Federal da Paraíba).
+# Supplies Management System
+System developed to register and manage supplies from the Brazilian Ministry of Health, in face of the Covid-19 pandemic. This program was a group work, as a project for the subjects of Programming Language I and Laboratory of Programming Language I, at UFPB (Federal University of Paraíba).
 
-## Funcionalidades:
-O sistema conta com os seguintes recursos, como principais funcionalidades:
-* **Cadastro de insumos no Ministério da Saúde:**
-  * Sendo eles divididos por tipo (vacina, medicamento ou EPI).
-* **Adicionar ao estoque de insumos:**
-  * A quantidade será adicionada ao estoque do Ministério da Saúde.
-* **Enviar para estados:**
-  * Envio de insumos já existentes no Ministério da Saúde para determinado estado;
-  * O usuário indica a quantidade a ser enviada ao estado, e ela será debitada do Ministério da Saúde.
-* **Consulta de insumos:**
-  * Consulta de estoque/informações do Ministério da Saúde ou de algum estado.
-* **Alterações de dados:**
-  * É possível realizar o recadastro dos dados de determinado insumo, modificando-os;
-  * Também é possível deletar determinado insumo do Ministério da Saúde, bem como, apagar todos insumos cadastrados no sistema.
+## Features
+The system has the following features as main functionalities:
+* **Register of supplies in the Ministry of Health:**
+  * Being divided on types (vaccines, medicines or PPE).
+* **Add to supplies stock:**
+  * The amount will be added to the Ministry of Health stock.
+* **Send to states:**
+  * Sending supplies that already exists at the Ministry of Health to a Brazilian state;
+  * The user indicates the amount to be sent to a state and it'll be debited from the Ministry of Health.
+* **Checking supplies:**
+  * Checking stock/information from the Ministry of Health or from any state.
+* **Changing data:**
+  * It's possible to do the re-registration of any supplies data, changing them;
+  * It's also possible to delete supplies from the Ministry of Health and all the data that exists on the system.
 
-**Obs:** Todos os dados que existirem no sistema ficam salvos na pasta de [dados](https://github.com/renatamendesc/Sistema-de-Cadastro-de-Insumos/tree/main/dados), em arquivos CSV, divididos por tipo de insumo.
+All the data registered keep saved on folder [dados](https://github.com/renatamendesc/Sistema-de-Cadastro-de-Insumos/tree/main/dados), on three CSV files, divided by type.
 
-## Colaboradores:
+## Contributors
 * [Gabriela Gomes Cavalcanti Alves Monteiro](https://github.com/gabrielagcam)
 * [Guilherme Jácome Cavalcante](https://github.com/GuilhermeJC13)
 * [Renata Mendes Pereira Campos](https://github.com/renatamendesc)
