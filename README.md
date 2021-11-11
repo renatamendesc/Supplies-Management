@@ -1,4 +1,4 @@
-# Supplies Management System
+# Supplies Management
 System developed to register and manage supplies from the Brazilian Ministry of Health, in face of the Covid-19 pandemic. This program was a group work, as a project for the subjects of Programming Language I and Laboratory of Programming Language I, at UFPB (Universidade Federal da Paraíba).
 
 ## Features
